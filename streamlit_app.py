@@ -64,7 +64,8 @@ def load_data():
 
   dados["ovitrap_id"] = dados["ovitrap_id"].astype(str).str.zfill(2)
   dados["week"] = dados["week"].astype(str).str.zfill(2)
-  dados['week_year'] = dados["year"].astype(str) + '.' + dados["week"] 
+  dados['week_year'] = dados["year"].astype(str) + '/' + dados["week"] 
+  dados['week_year'] = dados['week_year'].astype(str)
   return dados
 
 
