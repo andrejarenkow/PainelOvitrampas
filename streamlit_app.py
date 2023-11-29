@@ -25,7 +25,7 @@ col1.image('https://www.letravivaleiloes.com.br/custom/imagens/logo.png', width=
  
  #criando as listas que serão os Datasets
 @st.cache_data(ttl=600)
-def load_data(numero):
+def load_data():
   # URL do endpoint da API
   page=1
   url = f"https://contaovos.dengue.mat.br/pt-br/api/lastcounting?key=ivtcarjsyxyfwyetfmfpdbmutmutbkhdsqumspoyriqrr&page={page}"
