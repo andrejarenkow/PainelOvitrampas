@@ -60,7 +60,7 @@ def load_data(numero):
         # Imprime o número da página atual
         print(page)
   
- return dados
+return dados
 
 
 prg = st.progress(0) 
