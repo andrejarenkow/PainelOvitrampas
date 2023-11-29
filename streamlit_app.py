@@ -194,18 +194,20 @@ for linha in dados_mapa_geral.itertuples():
 
   ovi_chart = dados[(dados['municipality']==linha.municipality)&(dados['ovitrap_id']==linha.ovitrap_id)]
   if ovi_chart.shape[0]>0:
-   scatter = (
+    scatter = (
       Chart(ovi_chart)
       .mark_circle()
       .encode(
-          x="week_year",
-          y="eggs",))
-   vega_lite = folium.VegaLite(
-     scatter
-   )
-  
-   #popup = folium.Popup()
-   marker = folium.Circle(
+        x="week_year",
+        y="eggs",))
+    vega_lite = folium.VegaLite(
+      scatter,
+      width="100%",
+      height="100%",
+      )
+    
+      #popup = folium.Popup()
+    marker = folium.Circle(
         location=[linha.latitude, linha.longitude],
         popup = folium.Popup().add_child(vega_lite),
         tooltip= 'Armadilha %s - Ovos %s' % (linha.ovitrap_id, linha.eggs),
@@ -214,8 +216,10 @@ for linha in dados_mapa_geral.itertuples():
         fill=True,
         fill_color=linha.cor
                     )
- 
-   marker.add_to(m)
+      
+      #vega_lite.add_to(popup)
+      #popup.add_to(marker)
+    marker.add_to(m)
 
 
 with col2:
