@@ -215,9 +215,9 @@ for linha in dados_mapa_geral.itertuples():
       fill=True,
       fill_color=linha.cor
                    )
-  #popup = folium.Popup()
-  #vega_lite.add_to(popup)
-  #popup.add_to(marker)
+  popup = folium.Popup()
+  vega_lite.add_to(popup)
+  popup.add_to(marker)
   marker.add_to(m)
 
 
