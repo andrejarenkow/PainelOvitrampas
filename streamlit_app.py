@@ -5,6 +5,7 @@ import plotly.express as px
 import folium
 from streamlit_folium import st_folium
 import streamlit as st
+import time
 
  
 # Configurações da página
