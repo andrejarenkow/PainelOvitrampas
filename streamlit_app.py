@@ -124,17 +124,17 @@ fig = make_subplots(specs=[[{"secondary_y": True}]])
 
 # Add traces
 fig.add_trace(
-    go.Scatter(x=dados_ipo['week'], y=dados_ipo[0], name="IPO"),
+    go.Scatter(x=dados_ipo['week_year'], y=dados_ipo[0], name="IPO"),
     secondary_y=False,
 )
 
 fig.add_trace(
-    go.Scatter(x=dados_ido['week'], y=dados_ido[0], name="IDO"),
+    go.Scatter(x=dados_ido['week_year'], y=dados_ido[0], name="IDO"),
     secondary_y=True,
 )
 
 fig.add_trace(
-    go.Scatter(x=dados_imo['week'], y=dados_imo[0], name="IMO"),
+    go.Scatter(x=dados_imo['week_year'], y=dados_imo[0], name="IMO"),
     secondary_y=True,
 )
 
