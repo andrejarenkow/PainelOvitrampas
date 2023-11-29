@@ -65,12 +65,7 @@ def load_data():
   return dados
 
 
-prg = st.progress(0) 
-  
-for i in range(100): 
-    time.sleep(0.1) 
-    prg.progress(i+1) 
-
+ 
 dados = load_data()
 
 
@@ -123,7 +118,7 @@ for linha in dados_mapa_geral.itertuples():
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width=725)
 
-
+st_data
 
 
 
