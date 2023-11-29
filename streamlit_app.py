@@ -175,7 +175,7 @@ tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapS
 
 
 m = folium.Map(location=[dados_mapa_geral.latitude.mean(), dados_mapa_geral.longitude.mean()],
-               zoom_start=9,
+               zoom_start=11,
                tiles=tiles, attr=attr
                )
 
