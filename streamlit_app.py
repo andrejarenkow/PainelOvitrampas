@@ -61,7 +61,10 @@ def load_data():
   
         # Imprime o número da página atual
         print(page)
-  
+
+  dados["ovitrap_id"] = dados["ovitrap_id"].astype(str).str.zfill(2)
+  dados["week"] = dados["week"].astype(str).str.zfill(2)
+  dados['week_year'] = dados["year"].astype(str) + '-' + dados["week"] 
   return dados
 
 
@@ -109,11 +112,11 @@ from plotly.subplots import make_subplots
 
 dados_grafico = dados[dados['municipality']==municipio]
 
-dados_ipo = dados_grafico.groupby('week').apply(get_ipo).reset_index()
+dados_ipo = dados_grafico.groupby('week_year').apply(get_ipo).reset_index()
 dados_ipo['Métrica'] = 'IPO'
-dados_ido = dados_grafico.groupby('week').apply(get_ido).reset_index()
+dados_ido = dados_grafico.groupby('week_year').apply(get_ido).reset_index()
 dados_ido['Métrica'] = 'IDO'
-dados_imo = dados_grafico.groupby('week').apply(get_imo).reset_index()
+dados_imo = dados_grafico.groupby('week_year').apply(get_imo).reset_index()
 dados_imo['Métrica'] = 'IMO'
 
 # Create figure with secondary y-axis
