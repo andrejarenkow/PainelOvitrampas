@@ -77,9 +77,10 @@ col1, col2 = st.columns([1,5])
 
 with col1:
  #Criando filtros
- municipio = st.selectbox('Selecione o município', options=sorted(dados['municipality'].unique()))
- semana_epidemiologica = st.selectbox('Selecione a semana epidemoilógica', options=sorted(dados[(dados['municipality']==municipio)]['week'].unique()))
  ano = st.selectbox('Selecione o ano', options=sorted(dados['year'].unique()))
+ municipio = st.selectbox('Selecione o município', options=sorted(dados[(dados['year']==ano)]['municipality'].unique()))
+ semana_epidemiologica = st.selectbox('Selecione a semana epidemoilógica', options=sorted(dados[(dados['municipality']==municipio)]['week'].unique()))
+ 
 
 #Criar novo dataframe com os valores médios de cada ovitrampa
 
