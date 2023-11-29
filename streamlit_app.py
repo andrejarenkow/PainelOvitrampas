@@ -73,10 +73,13 @@ dados = load_data()
 #
 st.dataframe(dados)
 
-#Criando filtros
-municipio = st.selectbox('Selecione o município', options=sorted(dados['municipality'].unique()))
-semana_epidemiologica = st.selectbox('Selecione a semana epidemoilógica', options=sorted(dados['week'].unique()))
-ano = st.selectbox('Selecione o ano', options=sorted(dados['year'].unique()))
+col1, col2 = st.columns([1,5])
+
+with col1:
+ #Criando filtros
+ municipio = st.selectbox('Selecione o município', options=sorted(dados['municipality'].unique()))
+ semana_epidemiologica = st.selectbox('Selecione a semana epidemoilógica', options=sorted(dados['week'].unique()))
+ ano = st.selectbox('Selecione o ano', options=sorted(dados['year'].unique()))
 
 #Criar novo dataframe com os valores médios de cada ovitrampa
 
@@ -120,9 +123,9 @@ for linha in dados_mapa_geral.itertuples():
                    ).add_to(m)
 
 
-
-# call to render Folium map in Streamlit
-st_data = st_folium(m, width=725)
+with col2:
+ # call to render Folium map in Streamlit
+ st_data = st_folium(m, width=725)
 
 
 
