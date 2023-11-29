@@ -203,7 +203,7 @@ for linha in dados_mapa_geral.itertuples():
 
 with col2:
  # call to render Folium map in Streamlit
- st_data = st_folium(m)
+ st_data = st_folium(m, width=725, returned_objects=[])
 
 #tabela com as ovitrampas
 with col3:
