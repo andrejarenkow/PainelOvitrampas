@@ -73,17 +73,21 @@ def load_data():
 dados = load_data()
 dados['week_year'] = dados['week_year'].astype(str)
 
-col1, col2, col3 = st.columns(3)
+filtros, metricas = st.columns(2):
 
-with col1:
- #Criando filtros
- ano = st.selectbox('Selecione o ano', options=sorted(dados['year'].unique()), index=1)
+with filtros:
 
-with col2:
- municipio = st.selectbox('Selecione o município', options=sorted(dados[(dados['year']==ano)]['municipality'].unique()))
-
-with col3:
- semana_epidemiologica = st.selectbox('Selecione a semana epidemoilógica', options=sorted(dados[(dados['municipality']==municipio)]['week'].unique()))
+ col1, col2, col3 = st.columns(3)
+ 
+ with col1:
+  #Criando filtros
+  ano = st.selectbox('Selecione o ano', options=sorted(dados['year'].unique()), index=1)
+ 
+ with col2:
+  municipio = st.selectbox('Selecione o município', options=sorted(dados[(dados['year']==ano)]['municipality'].unique()))
+ 
+ with col3:
+  semana_epidemiologica = st.selectbox('Selecione a semana epidemoilógica', options=sorted(dados[(dados['municipality']==municipio)]['week'].unique()))
  
 
 
