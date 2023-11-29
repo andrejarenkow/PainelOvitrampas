@@ -215,7 +215,7 @@ with col3:
  st.plotly_chart(fig, use_container_width=True)
 
 with metricas:
- col1, col2, col3 = st.columns()
+ col1, col2, col3 = st.columns(3)
  with col1:
   st.metric('Total ovos coletados', value = dados_grafico['eggs'].sum())
  with col2:
