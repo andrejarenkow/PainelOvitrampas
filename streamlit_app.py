@@ -107,13 +107,13 @@ def get_imo(df):
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
+dados_grafico = dados[dados['municipality']==municipio]
 
-dados_ipo = dados.groupby('week').apply(get_ipo).reset_index()
+dados_ipo = dados_grafico.groupby('week').apply(get_ipo).reset_index()
 dados_ipo['Métrica'] = 'IPO'
-dados_ido = dados.groupby('week').apply(get_ido).reset_index()
+dados_ido = dados_grafico.groupby('week').apply(get_ido).reset_index()
 dados_ido['Métrica'] = 'IDO'
-
-dados_imo = dados.groupby('week').apply(get_imo).reset_index()
+dados_imo = dados_grafico.groupby('week').apply(get_imo).reset_index()
 dados_imo['Métrica'] = 'IMO'
 
 # Create figure with secondary y-axis
@@ -141,11 +141,11 @@ fig.update_layout(
 )
 
 # Set x-axis title
-fig.update_xaxes(title_text="xaxis title")
+fig.update_xaxes(title_text="Semana Epidemiológica")
 
 # Set y-axes titles
 fig.update_yaxes(title_text="IPO", secondary_y=False, tickformat=".2%")
-fig.update_yaxes(title_text="IDO", secondary_y=True)
+fig.update_yaxes(title_text="IDO - IMO", secondary_y=True)
 
 # Plot!
 st.plotly_chart(fig, use_container_width=True)
