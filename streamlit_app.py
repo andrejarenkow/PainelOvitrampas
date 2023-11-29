@@ -201,9 +201,7 @@ for linha in dados_mapa_geral.itertuples():
           x="week_year",
           y="eggs",))
    vega_lite = folium.VegaLite(
-     scatter,
-     width="100%",
-     height="100%",
+     scatter
    )
   
    #popup = folium.Popup()
