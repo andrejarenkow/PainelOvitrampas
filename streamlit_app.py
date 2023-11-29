@@ -204,6 +204,7 @@ with col2:
 #tabela com as ovitrampas
 with col3:
  dados_ovitrampas_municipio = pd.pivot_table(dados_grafico, index='ovitrap_id', columns='week_year', values='eggs', aggfunc='sum').fillna('-')
+ dados_ovitrampas_municipio.index.names = ['Nº Ovitrampa']
  st.dataframe(dados_ovitrampas_municipio, height=300, use_container_width=False,)
 
  # Plot!
