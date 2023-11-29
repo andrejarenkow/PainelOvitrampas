@@ -73,7 +73,7 @@ def load_data():
 dados = load_data()
 dados['week_year'] = dados['week_year'].astype(str)
 
-filtros, metricas = st.columns(2)
+filtros, metricas = st.columns([1,2])
 
 with filtros:
 
