@@ -73,8 +73,14 @@ dados = load_data()
 #
 st.dataframe(dados)
 
+#Criando filtros
+municipio = st.selectbox('Selecione o município', options=dados['municipality'].unique())
+semana_epidemiologica = st.radio('Selecione a semana epidemoilógica', options=dados['week'].unique())
+ano = st.radio('Selecione o ano', options=dados['year'].unique())
+
 #Criar novo dataframe com os valores médios de cada ovitrampa
-dados_mapa_geral = pd.pivot_table(dados, index=['latitude','longitude', 'municipality', 'ovitrap_id'], values='eggs', aggfunc='mean').reset_index()
+
+dados_mapa_geral = pd.pivot_table(dados[dados['municipality']==municipio], index=['latitude','longitude', 'municipality', 'ovitrap_id'], values='eggs', aggfunc='mean').reset_index()
 
 #Criação do mapa
 #definição das cores
@@ -89,12 +95,11 @@ attr = ('Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEy
 )
 tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
 
+
 m = folium.Map(location=[dados_mapa_geral.latitude.mean(), dados_mapa_geral.longitude.mean()],
                zoom_start=5,
                tiles=tiles, attr=attr
                )
-
-tooltip = "Click me!"
 
 folium.GeoJson('https://raw.githubusercontent.com/andrejarenkow/geodata/main/municipios_rs_CRS/RS_Municipios_2021.json',
     style_function=lambda feature: {
@@ -117,14 +122,6 @@ for linha in dados_mapa_geral.itertuples():
 
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width=725)
-
-st_data
-
-
-
-
-
-
 
 
 
