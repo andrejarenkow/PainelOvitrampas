@@ -73,16 +73,23 @@ def load_data():
 dados = load_data()
 dados['week_year'] = dados['week_year'].astype(str)
 
-
-
-
-col1, col2, col3 = st.columns([1,5,5])
+col1, col2, col3 = st.columns(3)
 
 with col1:
  #Criando filtros
  ano = st.selectbox('Selecione o ano', options=sorted(dados['year'].unique()), index=1)
+
+with col2:
  municipio = st.selectbox('Selecione o município', options=sorted(dados[(dados['year']==ano)]['municipality'].unique()))
+
+with col3:
  semana_epidemiologica = st.selectbox('Selecione a semana epidemoilógica', options=sorted(dados[(dados['municipality']==municipio)]['week'].unique()))
+ 
+
+
+col2, col3 = st.columns([5,5])
+
+
  
 
 #Criar novo dataframe com os valores médios de cada ovitrampa
