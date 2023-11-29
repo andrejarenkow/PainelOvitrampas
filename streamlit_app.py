@@ -64,7 +64,7 @@ def load_data():
 
   dados["ovitrap_id"] = dados["ovitrap_id"].astype(str).str.zfill(2)
   dados["week"] = dados["week"].astype(str).str.zfill(2)
-  dados['week_year'] = dados["year"].astype(str) + '-' + dados["week"] 
+  dados['week_year'] = dados["year"].astype(str) + '.' + dados["week"] 
   return dados
 
 
@@ -75,7 +75,7 @@ dados = load_data()
 
 
 
-col1, col2 = st.columns([1,5])
+col1, col2, col3 = st.columns([1,5,5])
 
 with col1:
  #Criando filtros
@@ -194,9 +194,10 @@ with col2:
  # call to render Folium map in Streamlit
  st_data = st_folium(m, width=725)
 
-#
-dados_ovitrampas_municipio = pd.pivot_table(dados_grafico, index='ovitrap_id', columns='week_year', values='eggs', aggfunc='sum').fillna('-')
-st.dataframe(dados_ovitrampas_municipio)
+#tabela com as ovitrampas
+with col3:
+ dados_ovitrampas_municipio = pd.pivot_table(dados_grafico, index='ovitrap_id', columns='week_year', values='eggs', aggfunc='sum').fillna('-')
+ st.dataframe(dados_ovitrampas_municipio)
 
 
 css='''
