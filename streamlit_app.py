@@ -222,7 +222,7 @@ with metricas:
  with col2:
   st.metric('Ovitrampas inspecionadas', value = dados_grafico['ovitrap_id'].count())
  with col3:
-  st.metric('Municípios', value = dados_grafico['municipality'].count())
+  st.metric('Municípios', value = len(dados_grafico['municipality'].unique()))
 
 css='''
 [data-testid="stMetric"] {
