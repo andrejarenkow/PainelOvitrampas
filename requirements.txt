@@ -6,3 +6,4 @@ streamlit==1.28.1
 requests==2.31.0
 folium==0.14.0
 streamlit-folium==0.16.0
+altair==4.2.2
