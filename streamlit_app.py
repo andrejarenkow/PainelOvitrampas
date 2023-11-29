@@ -218,9 +218,9 @@ with col3:
 with metricas:
  col1, col2, col3 = st.columns(3)
  with col1:
-  st.metric('Total ovos coletados', value = dados_grafico['eggs'].sum())
+  st.metric('Total ovos coletados', value = dados_mapa_geral['eggs'].sum())
  with col2:
-  st.metric('Ovitrampas inspecionadas', value = dados_grafico['ovitrap_id'].count())
+  st.metric('Ovitrampas inspecionadas', value = dados_mapa_geral['ovitrap_id'].count())
  with col3:
   st.metric('Municípios com ovitrampas', value = len(dados['municipality'].unique()))
 
