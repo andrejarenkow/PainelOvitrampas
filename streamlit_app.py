@@ -206,13 +206,13 @@ for linha in dados_mapa_geral.itertuples():
   
    #popup = folium.Popup()
    marker = folium.Circle(
-       location=[linha.latitude, linha.longitude],
-       popup = folium.Popup().add_child(vega_lite),
-       tooltip= 'Armadilha %s - Ovos %s' % (linha.ovitrap_id, linha.eggs),
-       radius=150,
-       color=linha.cor,
-       fill=True,
-       fill_color=linha.cor
+        location=[linha.latitude, linha.longitude],
+        popup = folium.Popup().add_child(vega_lite),
+        tooltip= 'Armadilha %s - Ovos %s' % (linha.ovitrap_id, linha.eggs),
+        radius=150,
+        color=linha.cor,
+        fill=True,
+        fill_color=linha.cor
                     )
  
    marker.add_to(m)
@@ -220,7 +220,7 @@ for linha in dados_mapa_geral.itertuples():
 
 with col2:
  # call to render Folium map in Streamlit
- st_data = st_folium(m, width=725, returned_objects=[])
+ st_data = st_folium(m, width=725,) #returned_objects=[])
 
 #tabela com as ovitrampas
 with col3:
