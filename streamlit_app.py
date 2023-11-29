@@ -102,7 +102,7 @@ tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapS
 
 
 m = folium.Map(location=[dados_mapa_geral.latitude.mean(), dados_mapa_geral.longitude.mean()],
-               zoom_start=7,
+               zoom_start=9,
                tiles=tiles, attr=attr
                )
 
@@ -110,7 +110,7 @@ folium.GeoJson('https://raw.githubusercontent.com/andrejarenkow/geodata/main/mun
     style_function=lambda feature: {
         "fillColor": "rgba(0,0,0,0)",
         "color": "white",
-        "weight": 1,
+        "weight": 0.5,
     },).add_to(m)
 
 for linha in dados_mapa_geral.itertuples():
