@@ -74,13 +74,14 @@ dados = load_data()
 st.dataframe(dados)
 
 #Criando filtros
-municipio = st.selectbox('Selecione o município', options=dados['municipality'].unique())
-semana_epidemiologica = st.radio('Selecione a semana epidemoilógica', options=dados['week'].unique())
-ano = st.radio('Selecione o ano', options=dados['year'].unique())
+municipio = st.selectbox('Selecione o município', options=(dados['municipality'].unique()).sort())
+semana_epidemiologica = st.selectbox('Selecione a semana epidemoilógica', options=(dados['week'].unique()).sort())
+ano = st.selectbox('Selecione o ano', options=(dados['year'].unique()).sort())
 
 #Criar novo dataframe com os valores médios de cada ovitrampa
 
-dados_mapa_geral = pd.pivot_table(dados[dados['municipality']==municipio], index=['latitude','longitude', 'municipality', 'ovitrap_id'], values='eggs', aggfunc='mean').reset_index()
+filtro = (dados['municipality']==municipio)&(dados['week']==semana_epidemiologica)&(dados['year']==ano)
+dados_mapa_geral = pd.pivot_table(dados[filtro], index=['latitude','longitude', 'municipality', 'ovitrap_id'], values='eggs', aggfunc='mean').reset_index()
 
 #Criação do mapa
 #definição das cores
