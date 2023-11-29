@@ -24,7 +24,7 @@ col1.image('https://www.letravivaleiloes.com.br/custom/imagens/logo.png', width=
 
  
  #criando as listas que serão os Datasets
-@st.cache_data(ttl=600)
+@st.cache_data()
 def load_data():
   # URL do endpoint da API
   page=1
