@@ -152,7 +152,7 @@ fig.add_trace(
 
 # Add figure title
 fig.update_layout(
-    title_text="IDO, IPO, IMO"
+    title_text="Série Histórica de IDO, IPO, IMO"
 )
 
 # Set x-axis title
