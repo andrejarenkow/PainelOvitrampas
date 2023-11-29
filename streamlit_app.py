@@ -207,17 +207,19 @@ for linha in dados_mapa_geral.itertuples():
     height="100%",
   )
  
+  #popup = folium.Popup()
   marker = folium.Circle(
       location=[linha.latitude, linha.longitude],
+      popup = vega_lite,
       tooltip= 'Armadilha %s - Ovos %s' % (linha.ovitrap_id, linha.eggs),
       radius=150,
       color=linha.cor,
       fill=True,
       fill_color=linha.cor
                    )
-  popup = folium.Popup()
-  vega_lite.add_to(popup)
-  popup.add_to(marker)
+  
+  #vega_lite.add_to(popup)
+  #popup.add_to(marker)
   marker.add_to(m)
 
 
