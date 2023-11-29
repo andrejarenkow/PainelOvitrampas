@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.express as px
 import folium
 from streamlit_folium import st_folium
+import streamlit as st
 
  
 # Configurações da página
