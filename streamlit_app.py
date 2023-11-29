@@ -215,9 +215,9 @@ with col3:
  st.plotly_chart(fig, use_container_width=True)
 
 with metricas:
- st.metric('Total ovos coletados', dados_ovitrampas_municipio['eggs'].sum())
- st.metric('Ovitrampas inspecionadas', dados_ovitrampas_municipio['ovitrap_id'].count())
- st.metric('Municípios', dados_ovitrampas_municipio['municipality'].count())
+ st.metric('Total ovos coletados', value = dados_ovitrampas_municipio['eggs'].sum())
+ st.metric('Ovitrampas inspecionadas', value = dados_ovitrampas_municipio['ovitrap_id'].count())
+ st.metric('Municípios', value = dados_ovitrampas_municipio['municipality'].count())
 
 css='''
 [data-testid="stMetric"] {
