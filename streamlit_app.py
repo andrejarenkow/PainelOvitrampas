@@ -191,15 +191,34 @@ folium.GeoJson('https://raw.githubusercontent.com/andrejarenkow/geodata/main/mun
     },).add_to(m)
 
 for linha in dados_mapa_geral.itertuples():
-  folium.Circle(
+
+  ovi_chart = dados[(dados['municipality']==linha.municipality)&dados['municipality']==linha.ovitrap_id)]
+  scatter = (
+     Chart(ovi_chart)
+     .mark_circle()
+     .encode(
+         x="week_year",
+         y="eggs",
+     )
+  )
+  vega_lite = folium.VegaLite(
+    scatter,
+    width="100%",
+    height="100%",
+  )
+ 
+  marker = folium.Circle(
       location=[linha.latitude, linha.longitude],
-      popup='Município %s - Armadilha %s' % (linha.municipality, linha.ovitrap_id),
       tooltip= 'Armadilha %s - Ovos %s' % (linha.ovitrap_id, linha.eggs),
       radius=150,
       color=linha.cor,
       fill=True,
       fill_color=linha.cor
-                   ).add_to(m)
+                   )
+  popup = folium.Popup()
+  vega_lite.add_to(popup)
+  popup.add_to(marker)
+  marker.add_to(m)
 
 
 with col2:
