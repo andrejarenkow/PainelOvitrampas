@@ -195,7 +195,8 @@ with col2:
  st_data = st_folium(m, width=725)
 
 #
-st.dataframe(dados)
+dados_ovitrampas_municipio = pd.pivot_table(dados_grafico, index='ovitrap_id', columns='week_year', values='eggs', aggfunc='sum').fillna('-')
+st.dataframe(dados_ovitrampas_municipio)
 
 
 css='''
