@@ -70,8 +70,7 @@ dados = load_data()
 
 
 
-#
-st.dataframe(dados)
+
 
 col1, col2 = st.columns([1,5])
 
@@ -128,6 +127,8 @@ with col2:
  # call to render Folium map in Streamlit
  st_data = st_folium(m, width=725)
 
+#
+st.dataframe(dados)
 
 
 css='''
