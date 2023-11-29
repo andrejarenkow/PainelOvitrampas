@@ -15,11 +15,11 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state='collapsed'
 ) 
-col1, col2, col3 = st.columns([2,12,1])
+col1, col2, col3 = st.columns([1,4,2])
 
-col1.image('https://www.letravivaleiloes.com.br/custom/imagens/logo.png', width=200)
+col1.image('https://github.com/andrejarenkow/PainelOvitrampas/blob/main/logo_cevs%20(1).png?raw=true', width=200)
 col2.title('Painel de Monitoramento de Aedes aegypti através de Ovitrampas')
-col1.image('https://www.letravivaleiloes.com.br/custom/imagens/logo.png', width=200)
+col1.image('https://github.com/andrejarenkow/PainelOvitrampas/blob/main/logo_estado%20(3).png?raw=true', width=200)
 
 
  
@@ -124,17 +124,17 @@ fig = make_subplots(specs=[[{"secondary_y": True}]])
 
 # Add traces
 fig.add_trace(
-    go.Scatter(x=dados_ipo['week_year'], y=dados_ipo[0], name="IPO"),
+    go.Scatter(x=dados_ipo['week_year'].astype(str), y=dados_ipo[0], name="IPO"),
     secondary_y=False,
 )
 
 fig.add_trace(
-    go.Scatter(x=dados_ido['week_year'], y=dados_ido[0], name="IDO"),
+    go.Scatter(x=dados_ido['week_year'].astype(str), y=dados_ido[0], name="IDO"),
     secondary_y=True,
 )
 
 fig.add_trace(
-    go.Scatter(x=dados_imo['week_year'], y=dados_imo[0], name="IMO"),
+    go.Scatter(x=dados_imo['week_year'].astype(str), y=dados_imo[0], name="IMO"),
     secondary_y=True,
 )
 
@@ -150,8 +150,7 @@ fig.update_xaxes(title_text="Semana Epidemiológica")
 fig.update_yaxes(title_text="IPO", secondary_y=False, tickformat=".2%")
 fig.update_yaxes(title_text="IDO - IMO", secondary_y=True)
 
-# Plot!
-st.plotly_chart(fig, use_container_width=True)
+
 
 #Criação do mapa
 #definição das cores
@@ -198,6 +197,9 @@ with col2:
 with col3:
  dados_ovitrampas_municipio = pd.pivot_table(dados_grafico, index='ovitrap_id', columns='week_year', values='eggs', aggfunc='sum').fillna('-')
  st.dataframe(dados_ovitrampas_municipio)
+
+ # Plot!
+ st.plotly_chart(fig, use_container_width=True)
 
 
 css='''
