@@ -17,9 +17,9 @@ st.set_page_config(
 ) 
 col1, col2, col3 = st.columns([1,4,2])
 
-col1.image('logo_cevs%20(1).png', width=200)
+col1.image('logo_cevs (1).png', width=200)
 col2.title('Painel de Monitoramento de Aedes aegypti através de Ovitrampas')
-col3.image('logo_estado%20(3).png', width=300)
+col3.image('logo_estado (3).png', width=300)
 
 
  
