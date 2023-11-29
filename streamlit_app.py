@@ -86,6 +86,70 @@ with col1:
 filtro = (dados['municipality']==municipio)&(dados['week']==semana_epidemiologica)&(dados['year']==ano)
 dados_mapa_geral = pd.pivot_table(dados[filtro], index=['latitude','longitude', 'municipality', 'ovitrap_id'], values='eggs', aggfunc='mean').reset_index()
 
+#IPO IDO IMO
+#IDO - Índice Densidade de Ovos
+def get_ido(df):
+    ido = (df[df['eggs']>0]['eggs'].mean())
+
+    return ido
+#IPO - Índice de Positividade de Ovos
+def get_ipo(df):
+    ipo = ((df['eggs']>0).sum()/len(df)).round(4)
+
+    return ipo
+
+#IMO - Índice Médio de Ovos
+def get_imo(df):
+    imo = df['eggs'].mean()
+
+    return imo
+
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+
+dados_ipo = dados.groupby('week').apply(get_ipo).reset_index()
+dados_ipo['Métrica'] = 'IPO'
+dados_ido = dados.groupby('week').apply(get_ido).reset_index()
+dados_ido['Métrica'] = 'IDO'
+
+dados_imo = dados.groupby('week').apply(get_imo).reset_index()
+dados_imo['Métrica'] = 'IMO'
+
+# Create figure with secondary y-axis
+fig = make_subplots(specs=[[{"secondary_y": True}]])
+
+# Add traces
+fig.add_trace(
+    go.Scatter(x=dados_ipo['week'], y=dados_ipo[0], name="IPO"),
+    secondary_y=False,
+)
+
+fig.add_trace(
+    go.Scatter(x=dados_ido['week'], y=dados_ido[0], name="IDO"),
+    secondary_y=True,
+)
+
+fig.add_trace(
+    go.Scatter(x=dados_imo['week'], y=dados_imo[0], name="IMO"),
+    secondary_y=True,
+)
+
+# Add figure title
+fig.update_layout(
+    title_text="IDO, IPO, IMO"
+)
+
+# Set x-axis title
+fig.update_xaxes(title_text="xaxis title")
+
+# Set y-axes titles
+fig.update_yaxes(title_text="IPO", secondary_y=False, tickformat=".2%")
+fig.update_yaxes(title_text="IDO", secondary_y=True)
+
+# Plot!
+st.plotly_chart(fig, use_container_width=True)
+
 #Criação do mapa
 #definição das cores
 dados_mapa_geral['cor'] = pd.cut(dados_mapa_geral['eggs'], bins=[-1,0,50,100,200,10000], labels=[ 'lightgray',#zero
