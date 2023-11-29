@@ -209,7 +209,7 @@ with col2:
 with col3:
  dados_ovitrampas_municipio = pd.pivot_table(dados_grafico, index='ovitrap_id', columns='week_year', values='eggs', aggfunc='sum').fillna('-')
  dados_ovitrampas_municipio.index.names = ['Nº Ovitr']
- st.dataframe(dados_ovitrampas_municipio, height=300, use_container_width=False,)
+ #st.dataframe(dados_ovitrampas_municipio, height=300, use_container_width=False,)
 
  # Plot!
  st.plotly_chart(fig, use_container_width=True)
