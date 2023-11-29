@@ -194,7 +194,7 @@ for linha in dados_mapa_geral.itertuples():
   folium.Circle(
       location=[linha.latitude, linha.longitude],
       popup='Município %s - Armadilha %s' % (linha.municipality, linha.ovitrap_id),
-      tooltip= 'Armadilha %s \n Ovos %s' % (linha.eggs),
+      tooltip= 'Armadilha %s \n Ovos %s' % (linha.ovitrap_id, linha.eggs),
       radius=150,
       color=linha.cor,
       fill=True,
