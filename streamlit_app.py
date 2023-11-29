@@ -70,7 +70,7 @@ def load_data():
 
  
 dados = load_data()
-
+dados['week_year'] = dados['week_year'].astype(str)
 
 
 
