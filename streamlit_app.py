@@ -195,15 +195,15 @@ for linha in dados_mapa_geral.itertuples():
   ovi_chart = dados[(dados['municipality']==linha.municipality)&(dados['ovitrap_id']==linha.ovitrap_id)]
   if ovi_chart.shape[0]>0:
     scatter = (
-      Chart(ovi_chart)
-      .mark_circle()
+      Chart(ovi_chart, width=200, height=100, title='Histórico')
+      .mark_bar()
       .encode(
-        x="week_year",
-        y="eggs",))
+        x=dict(field="week_year", title='Semana Epidemiológica'),
+        y=dict(field="eggs", title='Quantidade Ovos', type='quantitative')))
     vega_lite = folium.VegaLite(
       scatter,
-      width="100%",
-      height="100%",
+      width='100%',
+      height='100%',
       )
     
       #popup = folium.Popup()
