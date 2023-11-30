@@ -237,15 +237,15 @@ with col3:
  with st.expander('Explicação sobre as métricas'):
 
    st.latex(r'''
-    Índice\:de\:Densidade\:de\:Ovos =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:positivas}
+    Índice\:de\:Densidade\:de\:Ovos\:(IDO) =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:positivas}
     ''')
    st.divider()
    st.latex(r'''
-    Índice\:de\:Positividade\:de\:Ovitrampas =  \frac{Nº\:de\:armadilhas\:positivas\times 100}{Nº\:de\:armadilhas\:examinadas}
+    Índice\:de\:Positividade\:de\:Ovitrampas\:(IPO) =  \frac{Nº\:de\:armadilhas\:positivas\times 100}{Nº\:de\:armadilhas\:examinadas}
     ''')
    st.divider()
    st.latex(r'''
-    Índice\:Médio\:de\:Ovos =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:examinadas}
+    Índice\:Médio\:de\:Ovos\:(IMO) =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:examinadas}
     ''')
    
 
