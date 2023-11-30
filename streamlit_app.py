@@ -234,6 +234,8 @@ with col3:
 
  # Plot!
  st.plotly_chart(fig, use_container_width=True)
+ with st.expander('Explicação sobre as métricas'):
+  st.write('aaaaa')
 
 with metricas:
  col1, col2, col3 = st.columns(3)
