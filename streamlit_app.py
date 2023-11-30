@@ -200,7 +200,7 @@ for linha in dados_mapa_geral.itertuples():
       .encode(
         x=dict(field="week_year", title='Semana Epidemiológica'),
         y=dict(field="eggs", title='Quantidade Ovos', type='quantitative')))
-    label_grafico = scatter.mark_text(align='left', baseline='middle', dx=3).encode(text='eggs')
+    label_grafico = scatter.mark_text(align='center', baseline='top').encode(text='eggs')
     vega_lite = folium.VegaLite(
       (scatter+label_grafico),
       width='100%',
