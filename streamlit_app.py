@@ -196,7 +196,7 @@ for linha in dados_mapa_geral.itertuples():
 
     scatter = (
       Chart(ovi_chart, width=200, height=100, title='Histórico')
-      .mark_bar('mark':{ "type": "text",
+      .mark_bar(mark={ "type": "text",
                          "align": "left",
                          "baseline": "middle",
                          "dx": 3})
