@@ -235,7 +235,7 @@ with col3:
  # Plot!
  st.plotly_chart(fig, use_container_width=True)
  with st.expander('Explicação sobre as métricas'):
-  col_ido, col_ipo, col_imo = st.columns(3):
+  col_ido, col_ipo, col_imo = st.columns(3)
   with col_ido:
    st.write('aaa')
 
