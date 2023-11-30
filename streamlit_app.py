@@ -238,6 +238,9 @@ with col3:
   col_ido, col_ipo, col_imo = st.columns(3)
   with col_ido:
    st.write('aaa')
+   st.latex(r'''
+    IMO =  a \left(\frac{1-r^{n}}{1-r}\right)
+    ''')
 
   with col_ipo:
    st.write('bbb')
