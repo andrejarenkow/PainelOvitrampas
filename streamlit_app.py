@@ -241,11 +241,11 @@ with col3:
     ''')
    st.divider()
    st.latex(r'''
-    Índice\:de\:Densidade\:de\:Ovos =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:positivas}
+    Índice\:de\:Positividade\:de\:Ovitrampas =  \frac{Nº\:de\:armadilhas\:positivas}{Nº\:de\:armadilhas\:examinadas}
     ''')
    st.divider()
    st.latex(r'''
-    Índice\:de\:Densidade\:de\:Ovos =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:positivas}
+    Índice\:Médio\:de\:Ovos =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:examinadas}
     ''')
    
 
