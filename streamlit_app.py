@@ -239,7 +239,7 @@ with col3:
   with col_ido:
    st.write('IDO')
    st.latex(r'''
-    IDO =  \frac{Nº de ovos}{Nº de armadilhas positivas}
+    IDO =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:positivas}
     ''')
 
   with col_ipo:
