@@ -241,7 +241,7 @@ with col3:
     ''')
    st.divider()
    st.latex(r'''
-    Índice\:de\:Positividade\:de\:Ovitrampas =  \frac{Nº\:de\:armadilhas\:positivas}{Nº\:de\:armadilhas\:examinadas}
+    Índice\:de\:Positividade\:de\:Ovitrampas =  \frac{Nº\:de\:armadilhas\:positivas\times 100}{Nº\:de\:armadilhas\:examinadas}
     ''')
    st.divider()
    st.latex(r'''
