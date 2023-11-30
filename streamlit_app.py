@@ -199,7 +199,9 @@ for linha in dados_mapa_geral.itertuples():
       .mark_bar()
       .encode(
         x=dict(field="week_year", title='Semana Epidemiológica'),
-        y=dict(field="eggs", title='Quantidade Ovos', type='quantitative')).mark_text(align='left', baseline='middle', dx=3))
+        y=dict(field="eggs", title='Quantidade Ovos', type='quantitative')).mark_text(align='left', baseline='middle', dx=3).encode(
+    text='wheat:Q'
+))
     vega_lite = folium.VegaLite(
       scatter,
       width='100%',
