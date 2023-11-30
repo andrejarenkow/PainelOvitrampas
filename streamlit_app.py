@@ -173,8 +173,7 @@ dados_mapa_geral['cor'] = pd.cut(dados_mapa_geral['eggs'], bins=[-1,0,50,100,200
                                                                                                     'red' #mais de 200
                                                                                                        ])
 
-attr = ('Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-)
+attr = ('Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community')
 tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
 
 
@@ -225,7 +224,7 @@ for linha in dados_mapa_geral.itertuples():
 
 with col2:
  # call to render Folium map in Streamlit
- st_data = folium_static(m)
+ st_data = folium_static(m, use_container_width=True)
 
 #tabela com as ovitrampas
 with col3:
