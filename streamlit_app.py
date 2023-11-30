@@ -235,26 +235,17 @@ with col3:
  # Plot!
  st.plotly_chart(fig, use_container_width=True)
  with st.expander('Explicação sobre as métricas'):
-  col_explicacao, col_formula = st.columns(2)
-  
-  with col_explicacao:
-   st.write('IDO')
-   st.divider()
-   st.write('IPO')
-   st.divider()
-   st.write('IMO')
 
-  with col_formula:
    st.latex(r'''
-    IDO =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:positivas}
+    Índice\:de\:Densidade\:de\:Ovos =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:positivas}
     ''')
    st.divider()
    st.latex(r'''
-    IDO =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:positivas}
+    Índice\:de\:Densidade\:de\:Ovos =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:positivas}
     ''')
    st.divider()
    st.latex(r'''
-    IDO =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:positivas}
+    Índice\:de\:Densidade\:de\:Ovos =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:positivas}
     ''')
    
 
