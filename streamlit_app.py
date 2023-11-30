@@ -196,13 +196,13 @@ for linha in dados_mapa_geral.itertuples():
 
     scatter = (
       Chart(ovi_chart, width=200, height=100, title='Histórico')
-      .mark_bar(mark={ "type": "text",
-                         "align": "left",
-                         "baseline": "middle",
-                         "dx": 3})
+      .mark_bar()
       .encode(
         x=dict(field="week_year", title='Semana Epidemiológica'),
-        y=dict(field="eggs", title='Quantidade Ovos', type='quantitative')))
+        y=dict(field="eggs", title='Quantidade Ovos', type='quantitative')).mark_text(
+               align='left',
+               baseline='middle',
+               dx=3).encode(text='wheat:Q')
     vega_lite = folium.VegaLite(
       scatter,
       width='100%',
