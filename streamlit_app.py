@@ -237,9 +237,9 @@ with col3:
  with st.expander('Explicação sobre as métricas'):
   col_ido, col_ipo, col_imo = st.columns(3)
   with col_ido:
-   st.write('aaa')
+   st.write('IDO')
    st.latex(r'''
-    IMO =  a \left(\frac{1-r^{n}}{1-r}\right)
+    IDO =  \frac{Nº de ovos}{Nº de armadilhas positivas}
     ''')
 
   with col_ipo:
