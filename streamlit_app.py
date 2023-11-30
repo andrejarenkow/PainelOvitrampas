@@ -192,8 +192,8 @@ folium.GeoJson('https://raw.githubusercontent.com/andrejarenkow/geodata/main/mun
 
 for linha in dados_mapa_geral.itertuples():
 
-  ovi_chart = dados[(dados['municipality']==linha.municipality)&(dados['ovitrap_id']==linha.ovitrap_id)]
-  if ovi_chart.shape[0]>0:
+    ovi_chart = dados[(dados['municipality']==linha.municipality)&(dados['ovitrap_id']==linha.ovitrap_id)]
+
     scatter = (
       Chart(ovi_chart, width=200, height=100, title='Histórico')
       .mark_bar()
