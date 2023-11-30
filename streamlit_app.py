@@ -249,11 +249,11 @@ with col3:
     IDO =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:positivas}
     ''')
    st.divider()
-      st.latex(r'''
+   st.latex(r'''
     IDO =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:positivas}
     ''')
    st.divider()
-      st.latex(r'''
+   st.latex(r'''
     IDO =  \frac{Nº\:de\:ovos}{Nº\:de\:armadilhas\:positivas}
     ''')
    
