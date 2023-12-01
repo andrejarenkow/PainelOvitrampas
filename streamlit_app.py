@@ -156,7 +156,7 @@ fig.update_layout(
 )
 
 # Set x-axis title
-fig.update_xaxes(title_text="Semana Epidemiológica")
+fig.update_xaxes(title_text="Semana Epidemiológica", tickangle=90)
 
 # Set y-axes titles
 fig.update_yaxes(title_text="IPO", secondary_y=False, tickformat=".2%", range=[0, 1])
