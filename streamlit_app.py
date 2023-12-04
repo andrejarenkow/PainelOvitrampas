@@ -262,7 +262,7 @@ with metricas:
   st.metric('Municípios com ovitrampas', value = len(dados['municipality'].unique()))
   st.metric('IMO', value = dados_mapa_geral['eggs'].sum())
 
-dados_ipo
+dados_ipo[dados_ipo['week_year']=='semana_epidemiologica'][0]
 
 css='''
 [data-testid="stMetric"] {
