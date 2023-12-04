@@ -126,7 +126,11 @@ def get_imo(df):
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-dados_grafico = dados[dados['municipality']==municipio]
+if municipio == 'Todos':
+ dados_grafico = dados.copy()
+
+else:
+ dados_grafico = dados[dados['municipality']==municipio]
 
 dados_ipo = dados_grafico.groupby('week_year').apply(get_ipo).reset_index()
 dados_ipo['Métrica'] = 'IPO'
