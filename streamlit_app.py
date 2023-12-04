@@ -254,13 +254,13 @@ with metricas:
  col1, col2, col3 = st.columns(3)
  with col1:
   st.metric('Total de ovos coletados', value = dados_mapa_geral['eggs'].sum())
-  st.metric('IDO', value = dados_mapa_geral[dados_mapa_geral['eggs']>0]['eggs'].mean())
+  st.metric('IDO', value = get_ido(dados_mapa_geral))
  with col2:
   st.metric('Ovitrampas inspecionadas', value = dados_mapa_geral['ovitrap_id'].count())
-  st.metric('IPO', value = dados_mapa_geral['eggs'].sum())
+  st.metric('IPO', value = get_ipo(dados_mapa_geral))
  with col3:
   st.metric('Municípios com ovitrampas', value = len(dados['municipality'].unique()))
-  st.metric('IMO', value = dados_mapa_geral['eggs'].sum())
+  st.metric('IMO', value = get_imo(dados_mapa_geral))
 
 
 css='''
