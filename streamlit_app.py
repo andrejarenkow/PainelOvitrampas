@@ -104,7 +104,7 @@ dados_mapa_geral = pd.pivot_table(dados[filtro], index=['latitude','longitude', 
 #IPO IDO IMO
 #IDO - Índice Densidade de Ovos
 def get_ido(df):
-    ido = (df[df['eggs']>0]['eggs'].mean())
+    ido = (df[df['eggs']>0]['eggs'].mean()).round(2)
 
     return ido
 #IPO - Índice de Positividade de Ovos
@@ -257,7 +257,7 @@ with metricas:
   st.metric('IDO', value = get_ido(dados_mapa_geral))
  with col2:
   st.metric('Ovitrampas inspecionadas', value = dados_mapa_geral['ovitrap_id'].count())
-  st.metric('IPO', value = get_ipo(dados_mapa_geral))
+  st.metric('IPO', value = str(get_ipo(dados_mapa_geral)*100)+'%')
  with col3:
   st.metric('Municípios com ovitrampas', value = len(dados['municipality'].unique()))
   st.metric('IMO', value = get_imo(dados_mapa_geral))
