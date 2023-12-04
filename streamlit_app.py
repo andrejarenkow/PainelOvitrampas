@@ -99,10 +99,12 @@ col2, col3 = st.columns([5,5])
  
 
 #Criar novo dataframe com os valores médios de cada ovitrampa
-#if municipio == 'Todos'
-filtro = (dados['municipality']==municipio)&(dados['week']==semana_epidemiologica)&(dados['year']==ano)
-dados_mapa_geral = pd.pivot_table(dados[filtro], index=['latitude','longitude', 'municipality', 'ovitrap_id'], values='eggs', aggfunc='mean').reset_index()
+if municipio == 'Todos':
+ dados_mapa_geral = dados.copy()
 
+else:
+ filtro = (dados['municipality']==municipio)&(dados['week']==semana_epidemiologica)&(dados['year']==ano)
+ dados_mapa_geral = pd.pivot_table(dados[filtro], index=['latitude','longitude', 'municipality', 'ovitrap_id'], values='eggs', aggfunc='mean').reset_index()
 #IPO IDO IMO
 #IDO - Índice Densidade de Ovos
 def get_ido(df):
@@ -168,65 +170,69 @@ fig.update_yaxes(title_text="IDO - IMO", secondary_y=True, range=[0, 100])
 
 #Criação do mapa
 #definição das cores
-dados_mapa_geral['cor'] = pd.cut(dados_mapa_geral['eggs'], bins=[-1,0,50,100,200,10000], labels=[ 'lightgray',#zero
-                                                                                                    'limegreen', # 1 a 50
-                                                                                                    'gold', #50 a 100
-                                                                                                    'orange', #100 a 200
-                                                                                                    'red' #mais de 200
-                                                                                                       ])
+if municipio != 'Todos': 
+ dados_mapa_geral['cor'] = pd.cut(dados_mapa_geral['eggs'], bins=[-1,0,50,100,200,10000], labels=[ 'lightgray',#zero
+                                                                                                     'limegreen', # 1 a 50
+                                                                                                     'gold', #50 a 100
+                                                                                                     'orange', #100 a 200
+                                                                                                     'red' #mais de 200
+                                                                                                        ])
+ 
+ attr = ('Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community')
+ tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
+ 
+ 
+ m = folium.Map(location=[dados_mapa_geral.latitude.mean(), dados_mapa_geral.longitude.mean()],
+                zoom_start=13,
+                tiles=tiles, attr=attr
+                )
+ 
+ folium.GeoJson('https://raw.githubusercontent.com/andrejarenkow/geodata/main/municipios_rs_CRS/RS_Municipios_2021.json',
+     style_function=lambda feature: {
+         "fillColor": "rgba(0,0,0,0)",
+         "color": "white",
+         "weight": 0.5,
+     },).add_to(m)
+ 
+ for linha in dados_mapa_geral.itertuples():
+ 
+     ovi_chart = dados[(dados['municipality']==linha.municipality)&(dados['ovitrap_id']==linha.ovitrap_id)]
+ 
+     scatter = (
+       Chart(ovi_chart, width=200, height=100, title='Histórico')
+       .mark_bar()
+       .encode(
+         x=dict(field="week_year", title='Semana Epidemiológica'),
+         y=dict(field="eggs", title='Quantidade Ovos', type='quantitative')))
+     label_grafico = scatter.mark_text(align='center', baseline='bottom').encode(text='eggs')
+     vega_lite = folium.VegaLite(
+       (scatter+label_grafico),
+       width='100%',
+       height='100%',
+       )
+     
+       #popup = folium.Popup()
+     marker = folium.Circle(
+         location=[linha.latitude, linha.longitude],
+         popup = folium.Popup().add_child(vega_lite),
+         tooltip= 'Armadilha %s - Ovos %s' % (linha.ovitrap_id, linha.eggs),
+         radius=150,
+         color=linha.cor,
+         fill=True,
+         fill_color=linha.cor
+                     )
+       
+       #vega_lite.add_to(popup)
+       #popup.add_to(marker)
+     marker.add_to(m)
+ 
+ 
+ with col2:
+  # call to render Folium map in Streamlit
+  st_data = folium_static(m)
 
-attr = ('Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community')
-tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
-
-
-m = folium.Map(location=[dados_mapa_geral.latitude.mean(), dados_mapa_geral.longitude.mean()],
-               zoom_start=13,
-               tiles=tiles, attr=attr
-               )
-
-folium.GeoJson('https://raw.githubusercontent.com/andrejarenkow/geodata/main/municipios_rs_CRS/RS_Municipios_2021.json',
-    style_function=lambda feature: {
-        "fillColor": "rgba(0,0,0,0)",
-        "color": "white",
-        "weight": 0.5,
-    },).add_to(m)
-
-for linha in dados_mapa_geral.itertuples():
-
-    ovi_chart = dados[(dados['municipality']==linha.municipality)&(dados['ovitrap_id']==linha.ovitrap_id)]
-
-    scatter = (
-      Chart(ovi_chart, width=200, height=100, title='Histórico')
-      .mark_bar()
-      .encode(
-        x=dict(field="week_year", title='Semana Epidemiológica'),
-        y=dict(field="eggs", title='Quantidade Ovos', type='quantitative')))
-    label_grafico = scatter.mark_text(align='center', baseline='bottom').encode(text='eggs')
-    vega_lite = folium.VegaLite(
-      (scatter+label_grafico),
-      width='100%',
-      height='100%',
-      )
-    
-      #popup = folium.Popup()
-    marker = folium.Circle(
-        location=[linha.latitude, linha.longitude],
-        popup = folium.Popup().add_child(vega_lite),
-        tooltip= 'Armadilha %s - Ovos %s' % (linha.ovitrap_id, linha.eggs),
-        radius=150,
-        color=linha.cor,
-        fill=True,
-        fill_color=linha.cor
-                    )
-      
-      #vega_lite.add_to(popup)
-      #popup.add_to(marker)
-    marker.add_to(m)
-
-
-with col2:
- # call to render Folium map in Streamlit
- st_data = folium_static(m)
+else:
+ 'aaa'
 
 #tabela com as ovitrampas
 with col3:
@@ -262,7 +268,7 @@ with metricas:
   st.metric('IPO', value = str(get_ipo(dados_mapa_geral)*100)+'%')
  with col3:
   st.metric('Municípios com ovitrampas', value = len(dados['municipality'].unique()))
-  st.metric('IMO', value = get_imo(dados_mapa_geral))
+  st.metric('IMO', value = (get_imo(dados_mapa_geral)).round(2))
 
 
 css='''
