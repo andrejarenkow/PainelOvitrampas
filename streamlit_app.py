@@ -104,7 +104,7 @@ dados_mapa_geral = pd.pivot_table(dados[filtro], index=['latitude','longitude', 
 #IPO IDO IMO
 #IDO - Índice Densidade de Ovos
 def get_ido(df):
-    ido = (df[df['eggs']>0]['eggs'].mean()).round(2)
+    ido = (df[df['eggs']>0]['eggs'].mean())
 
     return ido
 #IPO - Índice de Positividade de Ovos
