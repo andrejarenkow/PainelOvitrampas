@@ -254,7 +254,7 @@ with metricas:
  col1, col2, col3 = st.columns(3)
  with col1:
   st.metric('Total de ovos coletados', value = dados_mapa_geral['eggs'].sum())
-  st.metric('IDO', value = get_ido(dados_mapa_geral))
+  st.metric('IDO', value = (get_ido(dados_mapa_geral)).round(2))
  with col2:
   st.metric('Ovitrampas inspecionadas', value = dados_mapa_geral['ovitrap_id'].count())
   st.metric('IPO', value = str(get_ipo(dados_mapa_geral)*100)+'%')
