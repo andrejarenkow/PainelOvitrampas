@@ -236,8 +236,12 @@ if municipio != 'Todos':
   st_data = folium_static(m)
 
 else:
- map_plotly_fig = px.scatter_mapbox(dados_mapa_geral.drop_duplicates(subset=['latitude']), lat="latitude", lon="longitude", size="eggs",
+ map_plotly_fig = px.scatter_mapbox(dados_mapa_geral.drop_duplicates(subset=['latitude']), lat="latitude", lon="longitude", size="eggs", mapbox_style="satellite-streets",
                   color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=10)
+
+ map_plotly_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
+                                margin=go.layout.Margin(l=10, r=10, t=10, b=10),
+                              mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',)
  with col2:
   # call to render Folium map in Streamlit
   st.plotly_chart(map_plotly_fig)
