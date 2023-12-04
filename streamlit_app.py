@@ -84,7 +84,9 @@ with filtros:
   ano = st.selectbox('Selecione o ano', options=sorted(dados['year'].unique()), index=1)
  
  with col2:
-  municipio = st.selectbox('Selecione o município', options=sorted(dados[(dados['year']==ano)]['municipality'].unique()))
+  lista_municipios = sorted(dados[(dados['year']==ano)]['municipality'].unique())
+  lista_municipios.append('Todos')
+  municipio = st.selectbox('Selecione o município', options=lista_municipios)
  
  with col3:
   semana_epidemiologica = st.selectbox('Selecione a semana epidemiológica', options=sorted(dados[(dados['municipality']==municipio)&(dados['year']==ano)]['week'].unique()))
@@ -97,7 +99,7 @@ col2, col3 = st.columns([5,5])
  
 
 #Criar novo dataframe com os valores médios de cada ovitrampa
-
+#if municipio == 'Todos'
 filtro = (dados['municipality']==municipio)&(dados['week']==semana_epidemiologica)&(dados['year']==ano)
 dados_mapa_geral = pd.pivot_table(dados[filtro], index=['latitude','longitude', 'municipality', 'ovitrap_id'], values='eggs', aggfunc='mean').reset_index()
 
