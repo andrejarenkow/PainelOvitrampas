@@ -238,11 +238,9 @@ if municipio != 'Todos':
 else:
  map_plotly_fig = px.scatter_mapbox(dados_mapa_geral, lat="latitude", lon="longitude", size="eggs",
                   color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=10)
-
-
  with col2:
- # call to render Folium map in Streamlit
- st.plotly_chart(map_plotly_fig)
+  # call to render Folium map in Streamlit
+  st.plotly_chart(map_plotly_fig)
 
 #tabela com as ovitrampas
 with col3:
