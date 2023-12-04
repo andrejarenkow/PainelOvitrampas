@@ -236,7 +236,7 @@ if municipio != 'Todos':
   st_data = folium_static(m)
 
 else:
- map_plotly_fig = px.scatter_mapbox(dados_mapa_geral.drop_duplicates(subset=['latitude']), lat="latitude", lon="longitude", size="eggs", mapbox_style="satellite-streets",
+ map_plotly_fig = px.scatter_mapbox(dados_mapa_geral.drop_duplicates(subset=['latitude']), lat="latitude", lon="longitude", color="eggs", mapbox_style="satellite-streets",
                   color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=10)
 
  map_plotly_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
