@@ -241,7 +241,7 @@ if municipio != 'Todos':
 
   with tab2:
    st.subheader('Mapa de calor')
-   map_plotly_fig_calor = ff.create_hexbin_mapbox(data_frame=dados_mapa_geral, lat='latitude', lon='longitude', nx_hexagon=int(round(len(dados_mapa_geral)/4,0)), opacity=0.8, color='eggs',
+   map_plotly_fig_calor = ff.create_hexbin_mapbox(data_frame=dados_mapa_geral, lat='latitude', lon='longitude', nx_hexagon=int(round(len(dados_mapa_geral)/1,0)), opacity=0.8, color='eggs',
                                                   mapbox_style="satellite-streets",color_continuous_scale='Reds', show_original_data=True,
                                                  original_data_marker=dict(size=4, opacity=0.8, color="black"), labels={"color": "Número de ovos"},
                                                  min_count=0)
@@ -313,13 +313,14 @@ with metricas:
  col1, col2, col3 = st.columns(3)
  with col1:
   st.metric('Total de ovos coletados', value = dados_mapa_geral['eggs'].sum())
-  st.metric('IDO', value = (get_ido(dados_mapa_geral)).round(2))
+  st.metric('IPO', value = str((get_ipo(dados_mapa_geral)*100).round(1))+'%')
+  
  with col2:
   st.metric('Ovitrampas inspecionadas', value = dados_mapa_geral['ovitrap_id'].count())
-  st.metric('IPO', value = str(get_ipo(dados_mapa_geral)*100)+'%')
+  st.metric('IDO', value = (get_ido(dados_mapa_geral)).round(1))
  with col3:
   st.metric('Municípios com ovitrampas', value = len(dados['municipality'].unique()))
-  st.metric('IMO', value = (get_imo(dados_mapa_geral)).round(2))
+  st.metric('IMO', value = (get_imo(dados_mapa_geral)).round(1))
 
 
 
