@@ -63,18 +63,18 @@ def load_data():
         # Imprime o número da página atual
         print(page)
 
-  dict_mes = {1: 'Janeiro',
-            2: 'Fevereiro',
-            3: 'Março',
-            4: 'Abril',
-            5: 'Maio',
-            6: 'Junho',
-            7: 'Julho',
-            8: 'Agosto',
-            9: 'Setembro',
-            10: 'Outubro',
-            11: 'Novembro', 
-            12: 'Dezembro'}
+  dict_mes = {1: '01 - Janeiro',
+            2: '02 - Fevereiro',
+            3: '03 - Março',
+            4: '04 - Abril',
+            5: '05 - Maio',
+            6: '06 - Junho',
+            7: '07 - Julho',
+            8: '08 - Agosto',
+            9: '09 - Setembro',
+            10: '10 - Outubro',
+            11: '11 - Novembro', 
+            12: '12 - Dezembro'}
 
   dados["ovitrap_id"] = dados["ovitrap_id"].astype(str).str.zfill(2)
   dados["week"] = dados["week"].astype(str).str.zfill(2)
