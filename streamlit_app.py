@@ -236,6 +236,7 @@ if municipio != 'Todos':
   st_data = folium_static(m)
 
 else:
+ dados_mapa_todos = dados_mapa_geral.drop_duplicates(subset=['latitude'])
  map_plotly_fig = px.scatter_mapbox(dados_mapa_geral.drop_duplicates(subset=['latitude']), lat="latitude", lon="longitude", color="eggs", mapbox_style="satellite-streets",
                   color_continuous_scale='Reds', size_max=30, zoom=5, center=dict(lat=dados_mapa_geral['latitude'].mean(), lon=dados_mapa_geral['longitude'].mean()))
 
@@ -282,6 +283,9 @@ with metricas:
   st.metric('Municípios com ovitrampas', value = len(dados['municipality'].unique()))
   st.metric('IMO', value = (get_imo(dados_mapa_geral)).round(2))
 
+
+dados_mapa_todos = pd.pivot_table(dados_mapa_geral, index=['latitude','longitude','municipality'],values='eggs', aggfunc='mean').reset_index()
+dados_mapa_todos
 
 css='''
 [data-testid="stMetric"] {
