@@ -238,14 +238,15 @@ if municipio != 'Todos':
 else:
  dados_mapa_todos = pd.pivot_table(dados_mapa_geral, index=['latitude','longitude','municipality'],values='eggs', aggfunc='mean').reset_index()
  map_plotly_fig = px.density_mapbox(dados_mapa_todos, lat="latitude", lon="longitude", z="eggs", mapbox_style="satellite-streets",
-                  color_continuous_scale='Reds', zoom=5, center=dict(lat=-30.456877333125696, lon= -53.01906610604057), height=400)
+                  color_continuous_scale='Reds', zoom=5, center=dict(lat=-30.456877333125696, lon= -53.01906610604057), height=600)
 
  map_plotly_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
                                 margin=go.layout.Margin(l=10, r=10, t=10, b=10),
                               mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
-                             title_text='Média de Ovos para todos os municípios')
+                             )
  with col2:
   # call to render Folium map in Streamlit
+  st.write('Mapa de calor de todo estado do RS')
   st.plotly_chart(map_plotly_fig, use_container_width=True)
 
 #tabela com as ovitrampas
