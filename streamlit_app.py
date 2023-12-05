@@ -246,7 +246,7 @@ else:
                              title_text='Média de Ovos para todos os municípios')
  with col2:
   # call to render Folium map in Streamlit
-  st.plotly_chart(map_plotly_fig)
+  st.plotly_chart(map_plotly_fig, use_container_width=True)
 
 #tabela com as ovitrampas
 with col3:
