@@ -243,7 +243,7 @@ if municipio != 'Todos':
    st.subheader('Mapa de calor')
    map_plotly_fig_calor = ff.create_hexbin_mapbox(data_frame=dados_mapa_geral, lat='latitude', lon='longitude', nx_hexagon=25, opacity=0.9, color='eggs',
                                                   mapbox_style="satellite-streets",color_continuous_scale='Reds', show_original_data=True,
-                                                 original_data_marker=dict(size=4, opacity=0.8, color="black"))
+                                                 original_data_marker=dict(size=4, opacity=0.8, color="black"), labels={"color": "Número de ovos"})
    map_plotly_fig_calor.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
                                 margin=go.layout.Margin(l=10, r=10, t=10, b=10),
                               mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
@@ -262,8 +262,8 @@ else:
    st.write('Mapa de calor de todo estado do RS')
    #map_plotly_fig_calor = px.density_mapbox(dados_mapa_todos, lat="latitude", lon="longitude", z="eggs", mapbox_style="satellite-streets",
    #               color_continuous_scale='Reds', zoom=5, center=dict(lat=-30.456877333125696, lon= -53.01906610604057), height=600, radius=20)
-   map_plotly_fig_calor = ff.create_hexbin_mapbox(data_frame=dados_mapa_geral, lat='latitude', lon='longitude', nx_hexagon=200, opacity=0.8, color='eggs',
-                                                  mapbox_style="satellite-streets",color_continuous_scale='Reds', min_count=1)
+   map_plotly_fig_calor = ff.create_hexbin_mapbox(data_frame=dados_mapa_geral, lat='latitude', lon='longitude', nx_hexagon=100, opacity=1, color='eggs',
+                                                  mapbox_style="satellite-streets",color_continuous_scale='Reds',  labels={"color": "Número de ovos"})
    map_plotly_fig_calor.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
                                 margin=go.layout.Margin(l=10, r=10, t=10, b=10),
                               mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
