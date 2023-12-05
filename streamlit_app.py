@@ -233,8 +233,21 @@ if municipio != 'Todos':
  
  
  with col2:
-  # call to render Folium map in Streamlit
-  st_data = folium_static(m)
+  tab1, tab2 = st.tabs(['Mapa de intensidade','Mapa de calor'])
+  with tab1:
+   # call to render Folium map in Streamlit
+   st_data = folium_static(m)
+
+  with tab2:
+   st.write('Mapa de calor de todo estado do RS')
+   map_plotly_fig = px.density_mapbox(dados_mapa_geral, lat="latitude", lon="longitude", z="eggs", mapbox_style="satellite-streets",
+                  color_continuous_scale='Reds', zoom=13, center=dict(lat=dados_mapa_geral['latitude'].mean(), lon= =dados_mapa_geral['lonmgitude'].mean()), height=600, radius=20)
+
+   map_plotly_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
+                              mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
+                             )
+   st.plotly_chart(map_plotly_fig, use_container_width=True)
+   
 
 else:
  dados_mapa_todos = pd.pivot_table(dados_mapa_geral, index=['latitude','longitude','municipality'],values='eggs', aggfunc='mean').reset_index()
@@ -265,7 +278,7 @@ else:
                               mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
                              )
    st.plotly_chart(map_plotly_fig, use_container_width=True)
-   st.plotly_chart(map_plotly_fig, use_container_width=True)
+
  
 
 #tabela com as ovitrampas
