@@ -238,7 +238,7 @@ if municipio != 'Todos':
 else:
  dados_mapa_todos = pd.pivot_table(dados_mapa_geral, index=['latitude','longitude','municipality'],values='eggs', aggfunc='mean').reset_index()
  map_plotly_fig = px.scatter_mapbox(dados_mapa_todos, lat="latitude", lon="longitude", color="eggs", mapbox_style="satellite-streets",
-                  color_continuous_scale='Reds', size_max=50, zoom=5, center=dict(lat=-29.456877333125696, lon= -53.01906610604057))
+                  color_continuous_scale='Reds', size_max=50, zoom=5, center=dict(lat=-28.456877333125696, lon= -53.01906610604057))
 
  map_plotly_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
                                 margin=go.layout.Margin(l=10, r=10, t=10, b=10),
