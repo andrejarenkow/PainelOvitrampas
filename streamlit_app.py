@@ -241,7 +241,7 @@ if municipio != 'Todos':
   with tab2:
    st.write('Mapa de calor de todo estado do RS')
    map_plotly_fig = px.density_mapbox(dados_mapa_geral, lat="latitude", lon="longitude", z="eggs", mapbox_style="satellite-streets",
-                  color_continuous_scale='Reds', zoom=13, center=dict(lat=dados_mapa_geral['latitude'].mean(), lon= =dados_mapa_geral['lonmgitude'].mean()), height=600, radius=20)
+                  color_continuous_scale='Reds', zoom=13, center=dict(lat=dados_mapa_geral['latitude'].mean(), lon =dados_mapa_geral['lonmgitude'].mean()), height=600, radius=20)
 
    map_plotly_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
                               mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
