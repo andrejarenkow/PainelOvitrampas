@@ -246,7 +246,7 @@ else:
    st.write('Mapa de calor de todo estado do RS')
    #map_plotly_fig_calor = px.density_mapbox(dados_mapa_todos, lat="latitude", lon="longitude", z="eggs", mapbox_style="satellite-streets",
    #               color_continuous_scale='Reds', zoom=5, center=dict(lat=-30.456877333125696, lon= -53.01906610604057), height=600, radius=20)
-   map_plotly_fig_calor = ff.create_hexbin_mapbox(data_frame=dados_mapa_geral, lat=-30.456877333125696, lon=-53.01906610604057, nx_hexagon=10, opacity=0.9, color='eggs',
+   map_plotly_fig_calor = ff.create_hexbin_mapbox(data_frame=dados_mapa_geral, lat='latitude', lon='longitude', nx_hexagon=10, opacity=0.9, color='eggs',
     )
    map_plotly_fig_calor.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
                                 margin=go.layout.Margin(l=10, r=10, t=10, b=10),
