@@ -111,7 +111,7 @@ with filtros:
  
 
 
-col2, col3 = st.columns([5,5])
+col2, col3 = st.columns([10,5])
 
 
  
