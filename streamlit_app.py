@@ -242,7 +242,8 @@ else:
 
  map_plotly_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
                                 margin=go.layout.Margin(l=10, r=10, t=10, b=10),
-                              mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',)
+                              mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
+                             title_text='Média de Ovos para todos os municípios')
  with col2:
   # call to render Folium map in Streamlit
   st.plotly_chart(map_plotly_fig)
