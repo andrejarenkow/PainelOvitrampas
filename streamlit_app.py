@@ -241,7 +241,7 @@ if municipio != 'Todos':
 
   with tab2:
    st.subheader('Mapa de calor')
-   map_plotly_fig_calor = ff.create_hexbin_mapbox(data_frame=dados_mapa_geral, lat='latitude', lon='longitude', nx_hexagon=int(round(len(dados_mapa_geral)/1,0)), opacity=0.8, color='eggs',
+   map_plotly_fig_calor = ff.create_hexbin_mapbox(data_frame=dados_mapa_geral, lat='latitude', lon='longitude', nx_hexagon=int(round(len(dados_mapa_geral)/1,0)), opacity=0.8, #color='eggs',
                                                   mapbox_style="satellite-streets",color_continuous_scale='Reds', show_original_data=True,
                                                  original_data_marker=dict(size=4, opacity=0.8, color="black"), labels={"color": "Número de ovos"})
    map_plotly_fig_calor.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
