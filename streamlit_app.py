@@ -63,9 +63,24 @@ def load_data():
         # Imprime o número da página atual
         print(page)
 
+  dict_mes = {1: 'Janeiro',
+            2: 'Fevereiro',
+            3: 'Março',
+            4: 'Abril',
+            5: 'Maio',
+            6: 'Junho',
+            7: 'Julho',
+            8: 'Agosto',
+            9: 'Setembro',
+            10: 'Outubro',
+            11: 'Novembro', 
+            12: 'Dezembro'}
+
   dados["ovitrap_id"] = dados["ovitrap_id"].astype(str).str.zfill(2)
   dados["week"] = dados["week"].astype(str).str.zfill(2)
-  dados['week_year'] = dados["year"].astype(str) + '/' + dados["week"] 
+  dados['week_year'] = dados["year"].astype(str) + '-W' + dados["week"]
+  dados['mes'] = pd.to_datetime(dados['week_year']+'-1', format='%Y-W%W-%w').dt.month.replace(dict_mes)
+  dados['week_year'] = dados["year"].astype(str) + '/' + dados["week"]
   dados['week_year'] = dados['week_year'].astype(str)
   return dados
 
@@ -90,6 +105,7 @@ with filtros:
   municipio = st.selectbox('Selecione o município', options=lista_municipios, index=len(lista_municipios)-1)
  
  with col3:
+  mes = st.selectbox('Selecione a semana epidemiológica', options=sorted(dados[(dados['municipality']==municipio)&(dados['year']==ano)]['mes'].unique()))
   semana_epidemiologica = st.selectbox('Selecione a semana epidemiológica', options=sorted(dados[(dados['municipality']==municipio)&(dados['year']==ano)]['week'].unique()))
  
 
