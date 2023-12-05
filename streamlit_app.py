@@ -240,13 +240,14 @@ if municipio != 'Todos':
 
   with tab2:
    st.write('Mapa de calor de todo estado do RS')
-   map_plotly_fig = px.density_mapbox(dados_mapa_geral, lat="latitude", lon="longitude", z="eggs", mapbox_style="satellite-streets",
-                  color_continuous_scale='Reds', zoom=13, center=dict(lat=dados_mapa_geral['latitude'].mean(), lon =dados_mapa_geral['lonmgitude'].mean()), height=600, radius=20)
-
-   map_plotly_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
+   map_plotly_fig_calor = ff.create_hexbin_mapbox(data_frame=dados_mapa_geral, lat='latitude', lon='longitude', nx_hexagon=100, opacity=0.8, color='eggs',
+                                                  mapbox_style="satellite-streets",color_continuous_scale='Reds')
+   map_plotly_fig_calor.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
+                                margin=go.layout.Margin(l=10, r=10, t=10, b=10),
                               mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
                              )
-   st.plotly_chart(map_plotly_fig, use_container_width=True)
+
+   st.plotly_chart(map_plotly_fig_calor, use_container_width=True)
    
 
 else:
