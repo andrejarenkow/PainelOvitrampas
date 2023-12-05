@@ -107,11 +107,11 @@ with filtros:
  with col3:
   mes = st.selectbox('Selecione o mês', options=sorted(dados[(dados['municipality']==municipio)&(dados['year']==ano)]['mes'].unique()))
   semana_epidemiologica = dados[(dados['municipality']==municipio)&(dados['year']==ano)&(dados['mes']==mes)]['week'].values[0]
-  st.write(f'Semana epidemiológica {semana_epidemiologica}')
+  st.subheader(f'Semana epidemiológica {semana_epidemiologica}')
  
 
 
-col2, col3 = st.columns([10,5])
+col2, col3 = st.columns([9,5])
 
 
  
