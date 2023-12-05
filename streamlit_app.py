@@ -206,7 +206,7 @@ if municipio != 'Todos':
  
  m = folium.Map(location=[dados_mapa_geral.latitude.mean(), dados_mapa_geral.longitude.mean()],
                 zoom_start=13,
-                tiles=tiles, attr=attr
+                tiles=tiles, attr=attr,
                 )
  
  folium.GeoJson('https://raw.githubusercontent.com/andrejarenkow/geodata/main/municipios_rs_CRS/RS_Municipios_2021.json',
@@ -254,7 +254,7 @@ if municipio != 'Todos':
   with tab1:
    # call to render Folium map in Streamlit
    st.subheader('Mapa de intensidade')
-   st_data = folium_static(m)
+   st_data = folium_static(m, width=1000, height=600)
 
   with tab2:
    st.subheader('Mapa de calor')
