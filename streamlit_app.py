@@ -106,7 +106,7 @@ with filtros:
  
  with col3:
   mes = st.selectbox('Selecione o mês', options=sorted(dados[(dados['municipality']==municipio)&(dados['year']==ano)]['mes'].unique()))
-  semana_epidemiologica = st.selectbox('Selecione a semana epidemiológica', options=sorted(dados[(dados['municipality']==municipio)&(dados['year']==ano)]['week'].unique()))
+  semana_epidemiologica = dados[(dados['municipality']==municipio)&(dados['year']==ano)&(dados['mes']==mes)]
  
 
 
