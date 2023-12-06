@@ -376,14 +376,10 @@ with coluna_imagens:
  col3.image('fiocruz_20180220_raquel_portugal_01096.jpg', width=350, caption='Preparação de armadilha - Imagem Fundação Oswaldo Cruz')
  
  
-def show_pdf(file_path):
-    with open(file_path,"rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="800" type="application/pdf"></iframe>'
-    st.markdown(pdf_display, unsafe_allow_html=True)
-
 with aba_referencias:
- show_pdf('Apostila_Ovitrampas_IOC.pdf')
+ st.video('https://www.youtube.com/watch?v=8OCSZHd47Zs')
+ st.video('https://www.youtube.com/watch?v=aWBtdSYdXVQ')
+ 
 
 
 
