@@ -370,10 +370,10 @@ with aba_sobre:
   )
 
 with coluna_imagens:
- col1, col2, col3 = st.columns(3)
+ col1, col2 = st.columns(2)
  col1.image('WhatsApp Image 2023-10-02 at 14.27.35.jpeg', width=350, caption='Ovos de Aedes aegypti na palheta')
  col2.image('fiocruz_20210512_mauro_campello_00029 (2).jpg', width=350, caption='Ilustração digital de ovos de Aedes aegypti - Imagem Fundação Oswaldo Cruz')
- col3.image('fiocruz_20180220_raquel_portugal_01096.jpg', width=350, caption='Preparação de armadilha - Imagem Fundação Oswaldo Cruz')
+ col1.image('fiocruz_20180220_raquel_portugal_01096.jpg', width=350, caption='Preparação de armadilha - Imagem Fundação Oswaldo Cruz')
  
  
 with aba_referencias:
