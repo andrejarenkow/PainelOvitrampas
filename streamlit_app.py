@@ -370,8 +370,8 @@ with aba_sobre:
   )
 
 with coluna_imagens:
- st.image('WhatsApp Image 2023-10-02 at 14.27.35.jpeg', width=200)
- st.image('fiocruz_20210512_mauro_campello_00029 (2).jpg', width=200)
+ st.image('WhatsApp Image 2023-10-02 at 14.27.35.jpeg', width=500)
+ st.image('fiocruz_20210512_mauro_campello_00029 (2).jpg', width=500)
  
 
 
