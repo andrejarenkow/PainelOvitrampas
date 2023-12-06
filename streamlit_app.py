@@ -378,15 +378,24 @@ with coluna_imagens:
  
 with aba_referencias:
  col1, col2 = st.columns(2)
- col2.text('Contagem de ovos de Aedes aegypti em ovitrampas')
+ col2.write('Contagem de ovos de Aedes aegypti em ovitrampas')
  col2.video('https://www.youtube.com/watch?v=8OCSZHd47Zs')
- col2.text('Metodologia para coleta de ovos Aedes aegypti')
+ col2.write('Metodologia para coleta de ovos Aedes aegypti')
  col2.video('https://www.youtube.com/watch?v=aWBtdSYdXVQ')
 
  with col1:
   st.markdown(
 """
    * [Apostila Ovitrampas Fiocruz](https://drive.google.com/file/d/1uJ4USZbgjyqmNU7_iQQskx9wurUkFTqJ/view)
+   * [Boletim Ovitrampas RS](https://drive.google.com/file/d/14j0kD-UNeF5uy-bBnYGLMjaB_ppxzTEL/view)
+   * [Grade de Contagem de Ovos](https://drive.google.com/file/d/1ddBBGHmaZ7lvKuLSLtvizuzKaXSDQdd_/view)
+   * [Modelo do Termo de Adesão às Ovitrampas](https://drive.google.com/file/d/1Jg7USwHiCFEahRD3gRH4ebBZ_vnQPepJ/view)
+   * [Modelo de Etiquetas](https://drive.google.com/file/d/1f0zMulTh-FDsCf1XQDJ4NmM-utItBaC-/view)
+   * [Nota Técnica Ministério da Saúde nº 33/2022](https://saude.rs.gov.br/upload/arquivos/202212/14131027-nota-tecnica-ms-n-33-2022-ovitrampas.pdf)
+   * [POP Ovitrampas](https://drive.google.com/file/d/1ws9EFSnhx82CUgF-UVUjENQpvJ0t-t7b/view)
+   * [Roteiro de adesão Ovitrampas para municípios](https://drive.google.com/file/d/1u6Xx9qXCZUP46OIlnwObNKWqjWtmdJTV/view)
+   * [Termo de Autorização](https://drive.google.com/file/d/1WYCpH3gBqsW3IvrKsPlGJZ4EoYx_rJfV/view)
+   * [Tutorial Aplicativo Minhas Coordenadas](https://drive.google.com/file/d/1WCCN59b5qxslM5GNQ975KZbTCmmGloWe/view)
 """   
   )
  
