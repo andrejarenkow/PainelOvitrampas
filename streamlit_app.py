@@ -377,11 +377,11 @@ with coluna_imagens:
  
  
 with aba_referencias:
- col1, col2 = st.columns(2)
+ col1, col2, col3 = st.columns([1,2,2])
  col2.write('Contagem de ovos de Aedes aegypti em ovitrampas')
  col2.video('https://www.youtube.com/watch?v=8OCSZHd47Zs')
- col2.write('Metodologia para coleta de ovos Aedes aegypti')
- col2.video('https://www.youtube.com/watch?v=aWBtdSYdXVQ')
+ col3.write('Metodologia para coleta de ovos Aedes aegypti')
+ col3.video('https://www.youtube.com/watch?v=aWBtdSYdXVQ')
 
  with col1:
   st.markdown(
