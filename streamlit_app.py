@@ -348,7 +348,24 @@ with aba_painel:
    st.metric('IMO - Índice de Média de Ovos', value = (get_imo(dados_mapa_geral)).round(1))
 
 with aba_sobre:
- st.text('aaaa')
+ st.header('O que são as ovitrampas?')
+ st.markdown(
+  """
+As ovitrampas são armadilhas que simulam um criadouro de Aedes aegypti utilizadas para detectar a presença e abundância do vetor por meio dos ovos depositados na mesma. 
+Consiste em um pote escuro com uma palheta de madeira (Eucatex®) presa na parede lateral com um clipe metálico. 
+Se adiciona 300 ml de água para atrair as fêmeas de Aedes spp. para realizar a postura dos ovos.  
+Se utiliza levedura de cerveja como atrativo, adicionado na água na concentração de 0,04%, para aumentar a atração das fêmeas de Aedes spp.
+
+
+A partir delas, pode-se calcular a densidade da população do mosquito naquele município e quais os locais de maior proliferação. 
+Com isso, a gestão pode providenciar outras estratégias mecânicas de combate à dengue, como mutirões de limpeza, educação em saúde, entre outras.
+
+
+Cada município irá instalar entre 50 a 100 armadilhas, que consiste em um vaso de planta sem furo e uma palheta de eucatex,
+onde é colocado levedo de cerveja afim de atrair a fêmea do mosquito a depositar os ovos no local. 
+A equipe retorna em cinco dias para recolher a armadilha e levá-la ao laboratório para fazer a contagem dos ovos.
+  """
+ )
 
 
 css='''
