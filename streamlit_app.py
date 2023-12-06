@@ -377,8 +377,18 @@ with coluna_imagens:
  
  
 with aba_referencias:
- st.video('https://www.youtube.com/watch?v=8OCSZHd47Zs')
- st.video('https://www.youtube.com/watch?v=aWBtdSYdXVQ')
+ col1, col2 = st.columns(2)
+ col2.text('Contagem de ovos de Aedes aegypti em ovitrampas')
+ col2.video('https://www.youtube.com/watch?v=8OCSZHd47Zs')
+ col2.text('Metodologia para coleta de ovos Aedes aegypti')
+ col2.video('https://www.youtube.com/watch?v=aWBtdSYdXVQ')
+
+ with col1:
+  st.markdown(
+"""
+   * [Apostila Ovitrampas Fiocruz](https://drive.google.com/file/d/1uJ4USZbgjyqmNU7_iQQskx9wurUkFTqJ/view)
+"""   
+  )
  
 
 
