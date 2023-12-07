@@ -425,14 +425,14 @@ with aba_grades:
                       height=800
                       )
 
- fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
+ fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', margin=go.layout.Margin(l=10, r=10, t=10, b=10),
                                mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
                               )
  
  # Exiba o gráfico
  col1, col2 = st.columns(2)
  with col1:
-  st.write('Sugestão de Grade')
+  st.write('São Leopoldo')
   st.plotly_chart(fig, use_container_width=True)
 
 
