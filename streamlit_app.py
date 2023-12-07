@@ -421,7 +421,7 @@ with aba_grades:
                       lon='longitude',
                       line_group='id',
                       mapbox_style="satellite-streets",
-                      #title='Sugestão Grade - São Leopoldo',
+                      title='Sugestão Grade - São Leopoldo',
                       zoom=10,
                       height=600
                       )
