@@ -8,6 +8,7 @@ import streamlit as st
 import time
 from altair import Chart
 import plotly.figure_factory as ff
+import geopandas as gpd
  
 # Configurações da página
 st.set_page_config(
@@ -89,7 +90,7 @@ def load_data():
 dados = load_data()
 dados['week_year'] = dados['week_year'].astype(str)
 
-aba_painel, aba_sobre, aba_referencias = st.tabs(['Painel','Sobre', 'Documentos de Referência'])
+aba_painel, aba_sobre, aba_referencias, aba_grades = st.tabs(['Painel','Sobre', 'Documentos de Referência', 'Grades de sugestão'])
 
 with aba_painel:
  
@@ -399,7 +400,32 @@ with aba_referencias:
 """   
   )
  
-
+with aba_grades:
+ # Carregue o GeoJSON com dados do tipo MultiLineString usando geopandas
+ geojson_path = 'malhas_geojson/sao_leopoldo.geosjon'
+ gdf = gpd.read_file(geojson_path)
+ 
+ # Exploda o GeoDataFrame para garantir que cada parte do MultiLineString seja tratada separadamente
+ gdf_exploded = gdf.explode(index_parts=True)
+ 
+ # Crie colunas separadas para latitude e longitude
+ gdf_exploded['latitude'] = gdf_exploded.geometry.apply(lambda geom: [coord[1] for coord in geom.coords])
+ gdf_exploded['longitude'] = gdf_exploded.geometry.apply(lambda geom: [coord[0] for coord in geom.coords])
+ 
+ # Converta os dados para o formato adequado para plotly.express
+ gdf_plotly = gdf_exploded.explode('latitude').explode('longitude')
+ 
+ # Use plotly.express para plotar linhas
+ fig = px.line_mapbox(gdf_plotly,
+                      lat='latitude', 
+                      lon='longitude',
+                      line_group='id',
+                      mapbox_style="carto-positron",
+                      title='MultiLineString Plot',
+                      zoom=10)
+ 
+ # Exiba o gráfico
+ st.plotly_chart(fig)
 
 
 css='''
