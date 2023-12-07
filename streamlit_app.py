@@ -423,6 +423,7 @@ with aba_grades:
                       mapbox_style="satellite-streets",
                       title='Sugestão Grade - São Leopoldo',
                       zoom=10,
+                      height=600
                       )
 
  fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
