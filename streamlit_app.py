@@ -421,11 +421,16 @@ with aba_grades:
                       lon='longitude',
                       line_group='id',
                       mapbox_style="carto-positron",
-                      title='MultiLineString Plot',
-                      zoom=10)
+                      title='Sugestão Grade - São Leopoldo',
+                      zoom=10,
+                      satellite-streets)
+
+ fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
+                               mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
+                              )
  
  # Exiba o gráfico
- st.plotly_chart(fig)
+ st.plotly_chart(fig, use_container_width=True)
 
 
 css='''
