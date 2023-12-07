@@ -422,7 +422,7 @@ with aba_grades:
                       line_group='id',
                       mapbox_style="satellite-streets",
                       zoom=11,
-                      height=800
+                      height=600
                       )
 
  fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', margin=go.layout.Margin(l=10, r=10, t=10, b=10),
