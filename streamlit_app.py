@@ -421,7 +421,7 @@ with aba_grades:
                       lon='longitude',
                       line_group='id',
                       mapbox_style="satellite-streets",
-                      zoom=10,
+                      zoom=12,
                       height=800
                       )
 
