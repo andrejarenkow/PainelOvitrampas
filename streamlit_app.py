@@ -421,9 +421,8 @@ with aba_grades:
                       lon='longitude',
                       line_group='id',
                       mapbox_style="satellite-streets",
-                      title='Sugestão Grade - São Leopoldo',
                       zoom=10,
-                      height=600
+                      height=800
                       )
 
  fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
@@ -433,6 +432,7 @@ with aba_grades:
  # Exiba o gráfico
  col1, col2 = st.columns(2)
  with col1:
+  st.text('Sugestão de Grade')
   st.plotly_chart(fig, use_container_width=True)
 
 
