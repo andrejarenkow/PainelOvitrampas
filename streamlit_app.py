@@ -420,10 +420,10 @@ with aba_grades:
                       lat='latitude', 
                       lon='longitude',
                       line_group='id',
-                      mapbox_style="carto-positron",
+                      mapbox_style="satellite-streets",
                       title='Sugestão Grade - São Leopoldo',
                       zoom=10,
-                      satellite-streets)
+                      )
 
  fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
                                mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
