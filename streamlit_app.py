@@ -421,7 +421,7 @@ with aba_grades:
                       lon='longitude',
                       line_group='id',
                       mapbox_style="satellite-streets",
-                      zoom=12,
+                      zoom=11,
                       height=800
                       )
 
@@ -432,7 +432,7 @@ with aba_grades:
  # Exiba o gráfico
  col1, col2 = st.columns(2)
  with col1:
-  st.text('Sugestão de Grade')
+  st.write('Sugestão de Grade')
   st.plotly_chart(fig, use_container_width=True)
 
 
