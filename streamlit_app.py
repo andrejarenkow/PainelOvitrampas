@@ -26,7 +26,7 @@ col3.image('logo_estado (3).png', width=300)
 
  
  #criando as listas que serão os Datasets
-@st.cache_data()
+@st.cache_data(ttl='2h')
 def load_data():
   # URL do endpoint da API
   page=1
