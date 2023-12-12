@@ -198,7 +198,7 @@ with aba_painel:
  
  # Set y-axes titles
  fig.update_yaxes(title_text="IPO", secondary_y=False, tickformat=".2%", range=[0, 1])
- fig.update_yaxes(title_text="IDO - IMO", secondary_y=True, range=[0, 100])
+ fig.update_yaxes(title_text="IDO - IMO", secondary_y=True, range=[0, 200])
  
  
  
