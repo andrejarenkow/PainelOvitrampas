@@ -98,28 +98,30 @@ with aba_painel:
  filtros, metricas = st.columns([2,3])
  
  with filtros:
- 
-  col1, col2, col3 = st.columns(3)
+  container = st.container(border=True)
+  with container:
+   st.subheader('Filtros')
+   col1, col2, col3 = st.columns(3)
+   
+   with col1:
+    #Criando filtros
+    ano = st.selectbox('Selecione o ano', options=sorted(dados['year'].unique()), index=1)
+   
+   with col2:
+    lista_municipios = sorted(dados[(dados['year']==ano)]['municipality'].unique())
+    lista_municipios.append('Todos')
+    municipio = st.selectbox('Selecione o município', options=lista_municipios, index=len(lista_municipios)-1)
+   
+   with col3:
+    if municipio != 'Todos':
+     mes = st.selectbox('Selecione o mês', options=sorted(dados[(dados['municipality']==municipio)&(dados['year']==ano)]['mes'].unique()))
+     semana_epidemiologica = dados[(dados['municipality']==municipio)&(dados['year']==ano)&(dados['mes']==mes)]['week'].values[0]
+     st.write(f'Semana epidemiológica {semana_epidemiologica}')
   
-  with col1:
-   #Criando filtros
-   ano = st.selectbox('Selecione o ano', options=sorted(dados['year'].unique()), index=1)
-  
-  with col2:
-   lista_municipios = sorted(dados[(dados['year']==ano)]['municipality'].unique())
-   lista_municipios.append('Todos')
-   municipio = st.selectbox('Selecione o município', options=lista_municipios, index=len(lista_municipios)-1)
-  
-  with col3:
-   if municipio != 'Todos':
-    mes = st.selectbox('Selecione o mês', options=sorted(dados[(dados['municipality']==municipio)&(dados['year']==ano)]['mes'].unique()))
-    semana_epidemiologica = dados[(dados['municipality']==municipio)&(dados['year']==ano)&(dados['mes']==mes)]['week'].values[0]
-    st.write(f'Semana epidemiológica {semana_epidemiologica}')
- 
-   else:
-    mes = st.selectbox('Selecione o mês', options=sorted(dados[(dados['year']==ano)]['mes'].unique()))
-    #semana_epidemiologica = dados[(dados['municipality']==municipio)&(dados['year']==ano)&(dados['mes']==mes)]['week'].values[0]
-    #st.write(f'Semana epidemiológica {semana_epidemiologica}')
+    else:
+     mes = st.selectbox('Selecione o mês', options=sorted(dados[(dados['year']==ano)]['mes'].unique()))
+     #semana_epidemiologica = dados[(dados['municipality']==municipio)&(dados['year']==ano)&(dados['mes']==mes)]['week'].values[0]
+     #st.write(f'Semana epidemiológica {semana_epidemiologica}')
   
  
  
