@@ -81,6 +81,7 @@ def load_data():
   dados["week"] = dados["week"].astype(str).str.zfill(2)
   dados['week_year'] = dados["year"].astype(str) + '-W' + dados["week"]
   dados['mes'] = pd.to_datetime(dados['week_year']+'-1', format='%Y-W%W-%w').dt.month.replace(dict_mes)
+  dados['mes_ano'] = dados["year"].astype(str) + '-'+ dados['mes']
   dados['week_year'] = dados["year"].astype(str) + '/' + dados["week"]
   dados['week_year'] = dados['week_year'].astype(str)
   return dados
@@ -161,11 +162,11 @@ with aba_painel:
  else:
   dados_grafico = dados[dados['municipality']==municipio]
  
- dados_ipo = dados_grafico.groupby('mes').apply(get_ipo).reset_index()
+ dados_ipo = dados_grafico.groupby('mes_ano').apply(get_ipo).reset_index()
  dados_ipo['Métrica'] = 'IPO'
- dados_ido = dados_grafico.groupby('mes').apply(get_ido).reset_index()
+ dados_ido = dados_grafico.groupby('mes_ano').apply(get_ido).reset_index()
  dados_ido['Métrica'] = 'IDO'
- dados_imo = dados_grafico.groupby('mes').apply(get_imo).reset_index()
+ dados_imo = dados_grafico.groupby('mes_ano').apply(get_imo).reset_index()
  dados_imo['Métrica'] = 'IMO'
  
  # Create figure with secondary y-axis
@@ -173,17 +174,17 @@ with aba_painel:
  
  # Add traces
  fig.add_trace(
-     go.Scatter(x=dados_ipo['mes'].astype(str), y=dados_ipo[0], name="IPO"),
+     go.Scatter(x=dados_ipo['mes_ano'].astype(str), y=dados_ipo[0], name="IPO"),
      secondary_y=False,
  )
  
  fig.add_trace(
-     go.Scatter(x=dados_ido['mes'].astype(str), y=dados_ido[0], name="IDO"),
+     go.Scatter(x=dados_ido['mes_ano'].astype(str), y=dados_ido[0], name="IDO"),
      secondary_y=True,
  )
  
  fig.add_trace(
-     go.Scatter(x=dados_imo['mes'].astype(str), y=dados_imo[0], name="IMO"),
+     go.Scatter(x=dados_imo['mes_ano'].astype(str), y=dados_imo[0], name="IMO"),
      secondary_y=True,
  )
  
