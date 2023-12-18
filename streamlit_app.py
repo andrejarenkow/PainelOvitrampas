@@ -123,6 +123,11 @@ with aba_painel:
      #semana_epidemiologica = dados[(dados['municipality']==municipio)&(dados['year']==ano)&(dados['mes']==mes)]['week'].values[0]
      #st.write(f'Semana epidemiológica {semana_epidemiologica}')
   
+  #filtro_faixa_0_a_50 = 
+  #filtro_faixa_50_a_100 = 
+  #filtro_faixa_100_a_200 = 
+  #filtro_faixa_200_ou_mais =
+  
  
  
  col2, col3 = st.columns([7,5])
