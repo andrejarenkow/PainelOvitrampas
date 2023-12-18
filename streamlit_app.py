@@ -124,10 +124,10 @@ with aba_painel:
      #st.write(f'Semana epidemiológica {semana_epidemiologica}')
 
    st.write('Faixas de ovitrampas')
-   filtro_faixa_0_a_50 = st.toggle('0 a 50')
-   filtro_faixa_50_a_100 = st.toggle('51 a 100')
-   filtro_faixa_100_a_200 = st.toggle('101 a 200')
-   filtro_faixa_200_ou_mais =st.toggle('Mais de 200')
+   filtro_faixa_0_a_50 = st.toggle('0 a 50', disabled =True)
+   filtro_faixa_50_a_100 = st.toggle('51 a 100', disabled =True)
+   filtro_faixa_100_a_200 = st.toggle('101 a 200', disabled =True)
+   filtro_faixa_200_ou_mais =st.toggle('Mais de 200', disabled =True)
   
  
  
