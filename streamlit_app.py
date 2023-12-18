@@ -124,23 +124,28 @@ with aba_painel:
      #st.write(f'Semana epidemiológica {semana_epidemiologica}')
 
    st.write('Faixas de ovitrampas')
+   lista_filtro_faixa = []
+   filtro_faixa_0 = st.toggle('Nenhuma', value  = True)
+   if filtro_faixa_0:
+    lista_filtro_faixa.append('lightgray')
    
-   filtro_faixa_0_a_50 = st.toggle('0 a 50', value  = True)
-   if filtro_faixa_0_a_50:
-    filtro_faixa_1 = (dados['eggs'] >= 0) & (dados['eggs'] <= 50)
+   filtro_faixa_1_a_50 = st.toggle('1 a 50', value  = True)
+   if filtro_faixa_1_a_50:
+    lista_filtro_faixa.append('limegreen')
     
    filtro_faixa_50_a_100 = st.toggle('51 a 100', value  = True)
    if filtro_faixa_0_a_50:
-    filtro_faixa_2 = (dados['eggs'] >= 51) & (dados['eggs'] <= 100)  
+    lista_filtro_faixa.append('gold')  
     
    filtro_faixa_100_a_200 = st.toggle('101 a 200', value  = True)
    if filtro_faixa_0_a_50:
-    filtro_faixa_3 = (dados['eggs'] >= 101) & (dados['eggs'] <= 200)
+    lista_filtro_faixa.append('orange')
     
    filtro_faixa_200_ou_mais =st.toggle('Mais de 200', value  = True)
    if filtro_faixa_0_a_50:
-    filtro_faixa_4 = (dados['eggs'] >= 200)
-  
+    lista_filtro_faixa.append('red')
+
+
  
  
  col2, col3 = st.columns([7,5])
@@ -231,7 +236,8 @@ with aba_painel:
                                                                                                       'orange', #100 a 200
                                                                                                       'red' #mais de 200
                                                                                                          ])
-  
+
+  dados_mapa_geral = dados_mapa_geral[dados_mapa_geral['cor'].isin(lista_filtro_faixa)]
   attr = ('Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community')
   tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
   
