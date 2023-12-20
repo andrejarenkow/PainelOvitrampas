@@ -97,7 +97,7 @@ aba_painel, aba_sobre, aba_referencias, aba_grades = st.tabs(['Painel','Sobre', 
 
 with aba_painel:
  
- filtros, novas_metricas, metricas = st.columns([3,2,4])
+ filtros, metricas, novas_metricas = st.columns([3,4,2])
  
  with filtros:
   container = st.container(border=True)
