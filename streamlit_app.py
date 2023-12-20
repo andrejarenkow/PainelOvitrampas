@@ -214,7 +214,7 @@ with aba_painel:
  )
  
  # Set x-axis title
- fig.update_xaxes(title_text="Semana Epidemiológica", tickangle=90)
+ fig.update_xaxes(title_text="Data", tickangle=-90)
  
  # Set y-axes titles
  fig.update_yaxes(title_text="IPO", secondary_y=False, tickformat=".2%", range=[0, 1])
