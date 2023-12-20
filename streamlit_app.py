@@ -97,7 +97,7 @@ aba_painel, aba_sobre, aba_referencias, aba_grades = st.tabs(['Painel','Sobre', 
 
 with aba_painel:
  
- filtros, metricas = st.columns([3,4])
+ filtros, novas_metricas, metricas = st.columns([3,2,4])
  
  with filtros:
   container = st.container(border=True)
@@ -357,7 +357,7 @@ with aba_painel:
     
  
  
- with filtros:
+ with novas_metricas:
   col1, col2, col3 = st.columns(3)
   with col1:
    st.metric('Total de ovos coletados', value = dados_mapa_geral['eggs'].sum())
