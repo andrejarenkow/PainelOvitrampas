@@ -358,15 +358,12 @@ with aba_painel:
  
  
  with novas_metricas:
-  col1, col2, col3 = st.columns(3)
-  with col1:
    st.metric('Total de ovos coletados', value = dados_mapa_geral['eggs'].sum())
    st.metric('IPO - Índice de Positividade de Ovos', value = str((get_ipo(dados_mapa_geral)*100).round(1))+'%')
-   
-  with col2:
+
    st.metric('Ovitrampas inspecionadas', value = dados_mapa_geral['ovitrap_id'].count())
    st.metric('IDO - Índice de Densidade de Ovos', value = (get_ido(dados_mapa_geral)).round(1))
-  with col3:
+
    st.metric('Municípios com ovitrampas', value = len(dados['municipality'].unique()))
    st.metric('IMO - Índice de Média de Ovos', value = (get_imo(dados_mapa_geral)).round(1))
 
