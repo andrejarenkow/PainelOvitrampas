@@ -147,7 +147,7 @@ with aba_painel:
 
  
  
- novas_metricass, col3 = st.columns([7,5])
+ #novas_metricass, col3 = st.columns([7,5])
  
  #Criar novo dataframe com os valores médios de cada ovitrampa
  if municipio == 'Todos':
@@ -287,7 +287,7 @@ with aba_painel:
    with tab1:
     # call to render Folium map in Streamlit
     st.subheader('Mapa de intensidade')
-    st_data = folium_static(m, width=1000, height=600)
+    st_data = folium_static(m, height=600)
  
    with tab2:
     st.subheader('Mapa de calor')
