@@ -102,7 +102,7 @@ with aba_painel:
  with filtros:
   container = st.container(border=True)
   with container:
-   st.subheader('Filtros')
+   st.write('Filtros')
    col1, col2 = st.columns(2)
    
    with col1:
@@ -289,7 +289,7 @@ with aba_painel:
     with tab1:
      # call to render Folium map in Streamlit
      st.subheader('Mapa de intensidade')
-     st_data = folium_static(m)
+     st_data = folium_static(m, height=400)
   
     with tab2:
      st.subheader('Mapa de calor')
