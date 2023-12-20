@@ -124,23 +124,23 @@ with aba_painel:
   with col2:
    st.write('Faixas de ovitrampas')
    lista_filtro_faixa = []
-   filtro_faixa_0 = st.toggle(':red[Nenhuma]', value  = True)
+   filtro_faixa_0 = st.toggle(':gray[Nenhuma]', value  = True)
    if filtro_faixa_0:
     lista_filtro_faixa.append('lightgray')
    
-   filtro_faixa_1_a_50 = st.toggle('1 a 50', value  = True)
+   filtro_faixa_1_a_50 = st.toggle(':green[1 a 50]', value  = True)
    if filtro_faixa_1_a_50:
     lista_filtro_faixa.append('limegreen')
     
-   filtro_faixa_50_a_100 = st.toggle('51 a 100', value  = True)
+   filtro_faixa_50_a_100 = st.toggle(':yellow[51 a 100]', value  = True)
    if filtro_faixa_50_a_100:
     lista_filtro_faixa.append('gold')  
     
-   filtro_faixa_100_a_200 = st.toggle('101 a 200', value  = True)
+   filtro_faixa_100_a_200 = st.toggle(':orange[101 a 200]', value  = True)
    if filtro_faixa_100_a_200:
     lista_filtro_faixa.append('orange')
     
-   filtro_faixa_200_ou_mais =st.toggle('Mais de 200', value  = True)
+   filtro_faixa_200_ou_mais =st.toggle(':red[Mais de 200]', value  = True)
    if filtro_faixa_200_ou_mais:
     lista_filtro_faixa.append('red')
 
