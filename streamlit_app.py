@@ -357,7 +357,7 @@ with aba_painel:
     
  
  
- with novas_metricas:
+ with filtros:
   col1, col2, col3 = st.columns(3)
   with col1:
    st.metric('Total de ovos coletados', value = dados_mapa_geral['eggs'].sum())
