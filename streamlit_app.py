@@ -147,7 +147,7 @@ with aba_painel:
 
  
  
- novas_metricas, col3 = st.columns([7,5])
+ novas_metricass, col3 = st.columns([7,5])
  
  #Criar novo dataframe com os valores médios de cada ovitrampa
  if municipio == 'Todos':
