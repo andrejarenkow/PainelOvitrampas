@@ -9,6 +9,8 @@ import time
 from altair import Chart
 import plotly.figure_factory as ff
 import geopandas as gpd
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
  
 # Configurações da página
 st.set_page_config(
@@ -147,9 +149,6 @@ with aba_painel:
  
  novas_metricas, col3 = st.columns([7,5])
  
- 
-  
- 
  #Criar novo dataframe com os valores médios de cada ovitrampa
  if municipio == 'Todos':
   dados_mapa_geral = dados.copy()
@@ -175,8 +174,7 @@ with aba_painel:
  
      return imo
  
- import plotly.graph_objects as go
- from plotly.subplots import make_subplots
+
  
  if municipio == 'Todos':
   dados_grafico = dados.copy()
@@ -306,7 +304,7 @@ with aba_painel:
  else:
   dados_mapa_todos = pd.pivot_table(dados_mapa_geral, index=['latitude','longitude','municipality'],values='eggs', aggfunc='mean').reset_index()
  
-  with novas_metricas:
+  with metricas:
    # call to render Folium map in Streamlit
    tab1, tab2 = st.tabs(['Mapa com pontos','Mapa de calor'])
    with tab1:
@@ -359,7 +357,7 @@ with aba_painel:
     
  
  
- with metricas:
+ with novas_metricas:
   col1, col2, col3 = st.columns(3)
   with col1:
    st.metric('Total de ovos coletados', value = dados_mapa_geral['eggs'].sum())
