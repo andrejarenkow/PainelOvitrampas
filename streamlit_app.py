@@ -122,7 +122,7 @@ with aba_painel:
      #semana_epidemiologica = dados[(dados['municipality']==municipio)&(dados['year']==ano)&(dados['mes']==mes)]['week'].values[0]
      #st.write(f'Semana epidemiológica {semana_epidemiologica}')
   with col2:
-   st.write('Faixas de ovitrampas')
+   #st.write('Faixas de ovitrampas')
    lista_filtro_faixa = []
    filtro_faixa_0 = st.toggle('Nenhuma :volleyball:', value  = True)
    if filtro_faixa_0:
