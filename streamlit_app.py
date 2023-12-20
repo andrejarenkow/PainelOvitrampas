@@ -124,7 +124,7 @@ with aba_painel:
   with col2:
    st.write('Faixas de ovitrampas')
    lista_filtro_faixa = []
-   filtro_faixa_0 = st.toggle('Nenhuma', value  = True)
+   filtro_faixa_0 = st.toggle(':red[Nenhuma]', value  = True)
    if filtro_faixa_0:
     lista_filtro_faixa.append('lightgray')
    
