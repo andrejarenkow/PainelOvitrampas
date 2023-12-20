@@ -132,7 +132,7 @@ with aba_painel:
    if filtro_faixa_1_a_50:
     lista_filtro_faixa.append('limegreen')
     
-   filtro_faixa_50_a_100 = st.toggle(':yellow[51 a 100]', value  = True)
+   filtro_faixa_50_a_100 = st.toggle(':rainbow[51 a 100]', value  = True)
    if filtro_faixa_50_a_100:
     lista_filtro_faixa.append('gold')  
     
