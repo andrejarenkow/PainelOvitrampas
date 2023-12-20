@@ -145,7 +145,7 @@ with aba_painel:
 
  
  
- col2, col3 = st.columns([7,5])
+ novas_metricas, col3 = st.columns([7,5])
  
  
   
@@ -284,7 +284,7 @@ with aba_painel:
       marker.add_to(m)
   
   
-  with col2:
+  with metricas:
    tab1, tab2 = st.tabs(['Mapa de intensidade','Mapa de calor'])
    with tab1:
     # call to render Folium map in Streamlit
@@ -306,7 +306,7 @@ with aba_painel:
  else:
   dados_mapa_todos = pd.pivot_table(dados_mapa_geral, index=['latitude','longitude','municipality'],values='eggs', aggfunc='mean').reset_index()
  
-  with col2:
+  with novas_metricas:
    # call to render Folium map in Streamlit
    tab1, tab2 = st.tabs(['Mapa com pontos','Mapa de calor'])
    with tab1:
