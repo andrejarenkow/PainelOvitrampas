@@ -21,9 +21,9 @@ st.set_page_config(
 ) 
 col1, col2, col3 = st.columns([1,4,1])
 
-col1.image('logo_cevs (1).png', width=100)
+col1.image('logo_cevs (1).png', width=200)
 col2.header('Painel de Monitoramento de Aedes aegypti através de Ovitrampas')
-col3.image('logo_estado (3).png', width=150)
+col3.image('logo_estado (3).png', width=300)
 
 
  
@@ -97,7 +97,7 @@ aba_painel, aba_sobre, aba_referencias, aba_grades = st.tabs(['Painel','Sobre', 
 
 with aba_painel:
  
- filtros, metricas = st.columns([2,3])
+ filtros, metricas = st.columns([3,4])
  
  with filtros:
   container = st.container(border=True)
