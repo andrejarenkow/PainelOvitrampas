@@ -283,8 +283,7 @@ with aba_painel:
   
   
   with metricas:
-   container_mapa = st.container()
-   with container_mapa:
+
     tab1, tab2 = st.tabs(['Mapa de intensidade','Mapa de calor'])
     with tab1:
      # call to render Folium map in Streamlit
