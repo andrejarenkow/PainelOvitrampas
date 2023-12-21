@@ -283,14 +283,13 @@ with aba_painel:
   
   
   with metricas:
-
-    tab1, tab2 = st.tabs(['Mapa de intensidade','Mapa de calor'])
-    with tab1:
+   tab1, tab2 = st.tabs(['Mapa de intensidade','Mapa de calor'])
+   with tab1:
      # call to render Folium map in Streamlit
      st.subheader('Mapa de intensidade')
      st_data = folium_static(m, height=400)
   
-    with tab2:
+   with tab2:
      st.subheader('Mapa de calor')
      map_plotly_fig_calor = px.density_mapbox(dados_mapa_geral, lat="latitude", lon="longitude", z="eggs", mapbox_style="satellite-streets",
                     color_continuous_scale='Reds', zoom=13, center=dict(lat=dados_mapa_geral['latitude'].mean(), lon=dados_mapa_geral['longitude'].mean()), height=600, radius=75)
